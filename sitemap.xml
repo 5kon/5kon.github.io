@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>junn.im/2016/one-year-with-ingress/</loc>
+    <loc>junn.im/2016/hello-world/</loc>
     
-    <lastmod>2016-05-17T15:55:45.000Z</lastmod>
+    <lastmod>2016-05-28T16:58:32.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>junn.im/2016/hello-world/</loc>
+    <loc>junn.im/about/index.html</loc>
     
-    <lastmod>2016-04-10T04:41:26.000Z</lastmod>
+    <lastmod>2016-05-28T16:24:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>junn.im/2016/one-year-with-ingress/</loc>
+    
+    <lastmod>2016-05-17T15:55:45.000Z</lastmod>
     
   </url>
   
