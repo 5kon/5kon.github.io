@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="junn.im/"/>
-  <updated>2016-05-30T04:08:49.000Z</updated>
+  <updated>2016-10-22T16:34:27.000Z</updated>
   <id>junn.im/</id>
   
   <author>
@@ -14,6 +14,74 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用VPS下载国外网盘资源并上传至百度云</title>
+    <link href="junn.im/2016/using-vps-to-download-and-upload/"/>
+    <id>junn.im/2016/using-vps-to-download-and-upload/</id>
+    <published>2016-10-19T16:00:00.000Z</published>
+    <updated>2016-10-22T16:34:27.000Z</updated>
+    
+    <content type="html">&lt;p&gt;最近需要下载国外网盘资源，无奈部分国外网盘被和谐，即使没被和谐的网盘下载速度和稳定性都不甚理想。曾经听说利用VPS可以下载国外网盘资源，正好自己手上也有闲置的VPS，我决定亲自实践一下利用VPS下载国外网盘资源，并且最后将此资源上传到百度云，在国内可以正常下载。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;需要工具：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一个VPS服务。内存至少256M，最好512M以上；硬盘容量因人而异；流量一般都用不完。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mcrapet/plowshare&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Plowshare&lt;/a&gt;，开源软件，下载国外网盘资源工具。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.9kw.eu/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;9kw.eu&lt;/a&gt;，一个用来识别国外网盘Captcha的&lt;strong&gt;付费&lt;/strong&gt;服务。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/houtianze/bypy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;bypy&lt;/a&gt;，国人开发的百度云的python客户端，可以实现上传同步等功能。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;第一步-配置VPS操作系统&quot;&gt;&lt;a href=&quot;#第一步-配置VPS操作系统&quot; class=&quot;headerlink&quot; title=&quot;第一步 配置VPS操作系统&quot;&gt;&lt;/a&gt;第一步 配置VPS操作系统&lt;/h2&gt;&lt;p&gt;我一开始用的是Vultr最基础的套餐，每月5刀的那种。选择&lt;code&gt;Vultr Cloud Compute(VC2)&lt;/code&gt;，&lt;code&gt;Server Location&lt;/code&gt;可以选&lt;code&gt;Tokyo&lt;/code&gt;，理论上离的越近，延迟越少。&lt;code&gt;Server Type&lt;/code&gt;选择&lt;code&gt;64 bit OS&lt;/code&gt;，点击&lt;code&gt;CentOS 7 x64&lt;/code&gt;，&lt;code&gt;Server Size&lt;/code&gt;选择&lt;code&gt;$5/mo&lt;/code&gt;(土豪请随意)，后面的&lt;code&gt;Additional Features&lt;/code&gt;之类的按照默认，最后点击&lt;code&gt;Deploy Now&lt;/code&gt;。操作系统最好选择CentOS 7，因为这个版本的系统默认的Python版本是2.7.5，而后面要用到的bypy依赖2.7+的Python才能运行。查看系统Python版本可用如下代码：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;python -V&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;几分钟之后，VPS部署完毕，记下VPS的IP地址和密码。&lt;/p&gt;
+&lt;h2 id=&quot;第二步-在VPS中安装Plowshare&quot;&gt;&lt;a href=&quot;#第二步-在VPS中安装Plowshare&quot; class=&quot;headerlink&quot; title=&quot;第二步 在VPS中安装Plowshare&quot;&gt;&lt;/a&gt;第二步 在VPS中安装Plowshare&lt;/h2&gt;&lt;p&gt;1.SSH&lt;/p&gt;
+&lt;p&gt;在安装Plowshare之前，得先通过SSH登录进VPS。Mac使用自带的终端就可以了，Windows可以使用PuTTY。以Mac为例，在终端中输入：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ssh root@你的VPS的IP地址&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;然后会提示你输入密码，复制粘贴即可。粘贴完密码后，终端不会显示密码，只需摁下回车键即可登录进VPS。&lt;/p&gt;
+&lt;p&gt;2.安装&lt;a href=&quot;https://github.com/mcrapet/plowshare&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Plowshare&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;按照&lt;a href=&quot;https://github.com/mcrapet/plowshare/blob/master/INSTALL&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;此页面&lt;/a&gt;安装。CentOS系统在终端中使用如下代码：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install plowshare&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在Vultr的CentOS中，我使用上面的代码安装Plowshare成功，但在AlphaRacks的VPS中，我使用同样代码却出现问题，出现如下文字：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;没有可用软件包 plowshare。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;错误：无须任何处理&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;我在网上寻寻觅觅，在这个&lt;a href=&quot;https://pkgs.org/centos-7/epel-x86_64/plowshare-1.0.6-1.el7.noarch.rpm.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;网页&lt;/a&gt;寻找到答案：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Download plowshare-1.0.6-1.el7.noarch.rpm for CentOS 7 from the EPEL repository.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;看到上面这句话我想，可能是因为AlphaRacks的CentOS缺少了&lt;code&gt;EPEL repository&lt;/code&gt;，导致plowshare无法下载。于是需要先在VPS中安装&lt;code&gt;EPEL repository&lt;/code&gt;，在网上寻觅到如下代码安装EPEL：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum -y install epel-release&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;安装EPEL后，Plowshare安装成功。&lt;/p&gt;
+&lt;p&gt;3.安装Plowshare的外部模块&lt;/p&gt;
+&lt;p&gt;在Plowshare的Introduction中有这么一句话：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Plowshare itself doesn’t support any websites (named module). It’s just the core engine. Concerning modules, few are available separately and must be installed in user directory&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Plowshare只是一个引擎(core engine)，真正起作用能下载这些国外网盘的是外部的模块(module)。所以安装完Plowshare后还要安装外部模块，按照&lt;a href=&quot;https://github.com/mcrapet/plowshare/blob/master/INSTALL&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个页面&lt;/a&gt;最后的代码&lt;code&gt;Installation (external modules)&lt;/code&gt;，我试了&lt;code&gt;Automatic method: using plowmod&lt;/code&gt;，没用。于是使用了&lt;code&gt;Manual method: from sources&lt;/code&gt;，成功安装。在终端中逐行输入以下代码，每输完一行敲一下回车键。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mkdir -p ~/.config/plowshare/modules.d&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; ~/.config/plowshare/modules.d&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;curl -L -k https://github.com/mcrapet/plowshare-modules-legacy/archive/master.tar.gz | tar zxf -&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mv plowshare-modules-legacy-master legacy&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# vim:fileencoding=utf-8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;到此，Plowshare安装全部完成。可以在终端输入&lt;code&gt;plowdown -h&lt;/code&gt;显示帮助文档，输入&lt;code&gt;plowdown --modules&lt;/code&gt;显示目前模块支持的网盘，发现居然还有115网盘(然后并有什么x用，如果支持yunfile就好了)。在帮助文档中还有一行代码比较重要：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;–9kweu=KEY           9kw.eu captcha (API) key&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;9kw.eu，是一个用来识别captcha的服务。下载过国外网盘资源的人都知道，这些网盘都需要看图识字(captcha)输入验证码才能下载资源，而9kw.eu正是一个自动识别captcha的服务，对于资源下载至关重要。Plowshare好像还有其他captcha识别服务，我没试过。&lt;/p&gt;
+&lt;h2 id=&quot;第三步-注册9kw-eu服务&quot;&gt;&lt;a href=&quot;#第三步-注册9kw-eu服务&quot; class=&quot;headerlink&quot; title=&quot;第三步 注册9kw.eu服务&quot;&gt;&lt;/a&gt;第三步 注册9kw.eu服务&lt;/h2&gt;&lt;p&gt;注册过程不叙述了，不过&lt;a href=&quot;9kw.eu&quot;&gt;9kw.eu&lt;/a&gt;这服务不是免费的，需要付费：4000次captcha服务(submit)，收费5欧。对于没有比特币的我来说只能使用坑爹的Paypal，5欧收了我38块多，Paypal这汇率…不过还算便宜，40元RMB支持识别4000次，1分钱识别1次，可以接受。注册付费完之后，在后台可以获取Plowshare的专属API，就是&lt;code&gt;--9kweu=KEY&lt;/code&gt;中的KEY。&lt;/p&gt;
+&lt;p&gt;接下去就是下载资源了，使用如下格式，注意空格：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;plowdown --9kweu=你的Plowshare专属API 你的资源网址链接&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;静等下载吧。&lt;/p&gt;
+&lt;h2 id=&quot;第四步-安装bypy&quot;&gt;&lt;a href=&quot;#第四步-安装bypy&quot; class=&quot;headerlink&quot; title=&quot;第四步 安装bypy&quot;&gt;&lt;/a&gt;第四步 安装bypy&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/houtianze/bypy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;bypy&lt;/a&gt;是一个百度云网盘的Python客户端，可在Linux环境下通过命令行来操作。在本文的操作环境下，安装byby需要更多的步骤，byby官网没有介绍那么详细，所以我参考了其他网友的教程。&lt;/p&gt;
+&lt;p&gt;1.安装 Git&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;2.安装Python Pip&lt;/p&gt;
+&lt;p&gt;如果在前面已安装过EPEL，则这边输入&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum -y install python-pip&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;yum clean all&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;如果没有安装过EPEL，则输入&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum -y install epel-release&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;yum -y install python-pip&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;yum clean all&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;3.安装Python Requests库&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install requests&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;4.安装bypy&lt;/p&gt;
+&lt;p&gt;完成以上步骤后，才开始正式安装bypy。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install bypy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;第一次运行时需要百度网盘授权，只需跑任何一个命令（比如 &lt;code&gt;bypy.py info&lt;/code&gt;）然后跟着说明（登陆等）来授权即可。授权只需一次，一旦成功，以后不会再出现授权提示。运行&lt;code&gt;bypy.py info&lt;/code&gt;是这样的：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bypy.py info&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Please visit: https://openapi.baidu.com/xxxxxx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;And authorize this app&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Paste the Authorization Code here within 10 minutes.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Press [Enter] when you are &lt;span class=&quot;keyword&quot;&gt;done&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在浏览器中打开 &lt;code&gt;https://openapi.baidu.com/xxxxxx&lt;/code&gt; 这个网址，百度会反馈一段&lt;code&gt;Authorization Code&lt;/code&gt;，复制粘贴到终端，摁回车键即可。到此bypy也装好了，等资源下载完，输入&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bypy.py upload&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;就能将资源搬回百度网盘了。&lt;/p&gt;
+&lt;p&gt;虽然这个过程比较复杂，虽然还要付费购买一些服务(也不算贵)，但是和在墙内寻找这些被墙的资源所浪费的时间和等待极不稳定时常断线的国外网盘慢速下载所浪费的时间相比，这点花费真不算什么，况且某些服务还有其他妙用。接下去再谈谈我使用的VPS下载上传速度(待更)。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近需要下载国外网盘资源，无奈部分国外网盘被和谐，即使没被和谐的网盘下载速度和稳定性都不甚理想。曾经听说利用VPS可以下载国外网盘资源，正好自己手上也有闲置的VPS，我决定亲自实践一下利用VPS下载国外网盘资源，并且最后将此资源上传到百度云，在国内可以正常下载。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="vps,网盘,百度云" scheme="junn.im/tags/vps-%E7%BD%91%E7%9B%98-%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
+    
+  </entry>
   
   <entry>
     <title>我与ingress的360天</title>
