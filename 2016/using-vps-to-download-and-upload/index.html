@@ -6,6 +6,7 @@
 <li><a href="https://github.com/mcrapet/plowshare" target="_blank" rel="external">Plowshare</a>，开源软件，下载国外网盘资源工具。</li>
 <li><a href="https://www.9kw.eu/index.html" target="_blank" rel="external">9kw.eu</a>，一个用来识别国外网盘Captcha的<strong>付费</strong>服务。</li>
 <li><a href="https://github.com/houtianze/bypy" target="_blank" rel="external">bypy</a>，国人开发的百度云的python客户端，可以实现上传同步等功能。</li>
+<li>Mac系统: 终端(Terminal.app); Windows系统: PuTTY</li>
 </ol>
 <h2 id="第一步-配置VPS操作系统"><a href="#第一步-配置VPS操作系统" class="headerlink" title="第一步 配置VPS操作系统"></a>第一步 配置VPS操作系统</h2><p>我一开始用的是Vultr最基础的套餐，每月5刀的那种。选择<code>Vultr Cloud Compute(VC2)</code>，<code>Server Location</code>可以选<code>Tokyo</code>，理论上离的越近，延迟越少。<code>Server Type</code>选择<code>64 bit OS</code>，点击<code>CentOS 7 x64</code>，<code>Server Size</code>选择<code>$5/mo</code>(土豪请随意)，后面的<code>Additional Features</code>之类的按照默认，最后点击<code>Deploy Now</code>。操作系统最好选择CentOS 7，因为这个版本的系统默认的Python版本是2.7.5，而后面要用到的bypy依赖2.7+的Python才能运行。查看系统Python版本可用如下代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -V</span><br></pre></td></tr></table></figure></p>
 <p>几分钟之后，VPS部署完毕，记下VPS的IP地址和密码。</p>
@@ -46,7 +47,79 @@
 <p>第一次运行时需要百度网盘授权，只需跑任何一个命令（比如 <code>bypy.py info</code>）然后跟着说明（登陆等）来授权即可。授权只需一次，一旦成功，以后不会再出现授权提示。运行<code>bypy.py info</code>是这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bypy.py info</span><br><span class="line">Please visit: https://openapi.baidu.com/xxxxxx</span><br><span class="line">And authorize this app</span><br><span class="line">Paste the Authorization Code here within 10 minutes.</span><br><span class="line">Press [Enter] when you are <span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
 <p>在浏览器中打开 <code>https://openapi.baidu.com/xxxxxx</code> 这个网址，百度会反馈一段<code>Authorization Code</code>，复制粘贴到终端，摁回车键即可。到此bypy也装好了，等资源下载完，输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bypy.py upload</span><br></pre></td></tr></table></figure></p>
 <p>就能将资源搬回百度网盘了。</p>
-<p>虽然这个过程比较复杂，虽然还要付费购买一些服务(也不算贵)，但是和在墙内寻找这些被墙的资源所浪费的时间和等待极不稳定时常断线的国外网盘慢速下载所浪费的时间相比，这点花费真不算什么，况且某些服务还有其他妙用。接下去再谈谈我使用的VPS下载上传速度(待更)。</p>
+<p>接下去再谈谈我使用的VPS下载上传速度。</p>
+<p>我只使用了Vultr家的最基础的<code>$5/mo</code>套餐和AlphaRacks家的<code>Hot Summer Special - Linux 768MB</code>套餐，两家配置如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Vultr</th>
+<th style="text-align:center">AlphaRacks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CPU</td>
+<td style="text-align:center">1核</td>
+<td style="text-align:center">1核</td>
+</tr>
+<tr>
+<td style="text-align:center">内存</td>
+<td style="text-align:center">768MB</td>
+<td style="text-align:center">768MB</td>
+</tr>
+<tr>
+<td style="text-align:center">硬盘</td>
+<td style="text-align:center">15GB</td>
+<td style="text-align:center">15GB</td>
+</tr>
+<tr>
+<td style="text-align:center">流量</td>
+<td style="text-align:center">1TB</td>
+<td style="text-align:center">1TB</td>
+</tr>
+<tr>
+<td style="text-align:center">位置</td>
+<td style="text-align:center">新加坡</td>
+<td style="text-align:center">洛杉矶</td>
+</tr>
+<tr>
+<td style="text-align:center">价格</td>
+<td style="text-align:center">5刀/月</td>
+<td style="text-align:center">11刀/年</td>
+</tr>
+</tbody>
+</table>
+<p>分别在<code>rapidgator.net</code>,<code>uploaded.net</code>,<code>keep2share.cc</code>三个国外网盘进行过下载并上传到百度云。下载上传速率如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">kb/s</th>
+<th style="text-align:center">rapidgator.net</th>
+<th style="text-align:center">uploaded.net</th>
+<th style="text-align:center">keep2share.cc</th>
+<th style="text-align:center">百度云上传速度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Vultr</td>
+<td style="text-align:center">60-80</td>
+<td style="text-align:center">40-60</td>
+<td style="text-align:center">没下载</td>
+<td style="text-align:center">80-100</td>
+</tr>
+<tr>
+<td style="text-align:center">AlphaRacks</td>
+<td style="text-align:center">70-100</td>
+<td style="text-align:center">70-80</td>
+<td style="text-align:center">50-60</td>
+<td style="text-align:center">200-300, 1M/s(Max)</td>
+</tr>
+</tbody>
+</table>
+<p>可以看出虽然Vultr名声很大，但差不多配置下，AlphaRacks家的VPS上传下载速度更快，而且更便宜。所以我更推荐AlphaRacks。点击进入<a href="https://www.alpharacks.com/myrack/aff.php?aff=830" target="_blank" rel="external">AlphaRacks</a>，或者进入<a href="https://www.alpharacks.com/myrack/aff.php?aff=830&amp;pid=201" target="_blank" rel="external">AlphaRacks<code>Hot Summer Special - Linux 768MB</code>套餐</a>。</p>
+<p>以上就是利用VPS来下载国外网盘资源并上传到百度云的全过程。虽然这个过程比较复杂，还要付费购买一些服务(也不算贵)，但是和在墙内寻找这些被墙的资源所浪费的时间和等待极不稳定时常断线的国外网盘慢速下载所浪费的时间相比，这点花费真不算什么，况且某些服务还有其他妙用。</p>
 </div></article></div></section><footer><div class="paginator"><a href="/2016/one-year-with-ingress/" class="next">NEXT</a></div><div data-thread-key="2016/using-vps-to-download-and-upload/" data-title="利用VPS下载国外网盘资源并上传至百度云" data-url="junn.im/2016/using-vps-to-download-and-upload/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"junnim"};
 (function() {
     var ds = document.createElement('script');
