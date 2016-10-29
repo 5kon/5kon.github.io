@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="junn.im/"/>
-  <updated>2016-10-28T14:18:17.000Z</updated>
+  <updated>2016-10-29T11:51:16.000Z</updated>
   <id>junn.im/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="junn.im/2016/download-from-baiduyun-using-aria2/"/>
     <id>junn.im/2016/download-from-baiduyun-using-aria2/</id>
     <published>2016-10-27T16:00:00.000Z</published>
-    <updated>2016-10-28T14:18:17.000Z</updated>
+    <updated>2016-10-29T11:51:16.000Z</updated>
     
     <content type="html">&lt;p&gt;上一篇写到了使用VPS下载国外网盘资源并将资源上传至百度云，费时费力绕这么大一圈把资源搬回墙内最终目的还是为了下载。作为国内唯一还能「一用」的大公司网盘，用户体验自然差到极点，8秒小电影、无理由限制上传下载速度都是家常便饭。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;我曾利用Tampermonkey里的百度云脚本获取可以在迅雷中使用的下载链接，这些脚本经常被百度封杀，不是长久之计，直到后来我发现了aria2这一利器。&lt;/p&gt;
 &lt;h2 id=&quot;什么是aria2&quot;&gt;&lt;a href=&quot;#什么是aria2&quot; class=&quot;headerlink&quot; title=&quot;什么是aria2&quot;&gt;&lt;/a&gt;什么是aria2&lt;/h2&gt;&lt;blockquote&gt;
@@ -46,7 +46,7 @@
 &lt;p&gt;xxx 请自行替换成你的 Mac 用户名，aria2就启动了。&lt;/p&gt;
 &lt;h2 id=&quot;使用aria2&quot;&gt;&lt;a href=&quot;#使用aria2&quot; class=&quot;headerlink&quot; title=&quot;使用aria2&quot;&gt;&lt;/a&gt;使用aria2&lt;/h2&gt;&lt;p&gt;aria2是一个命令行下载器(command-line download utility)，官网也给出了命令行下载说明，它没有用户操作界面(GUI)。不过还是有大神制作了两款在线GUI：&lt;a href=&quot;http://binux.github.io/yaaw/demo/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;YAAW&lt;/a&gt;和&lt;a href=&quot;http://ziahamza.github.io/webui-aria2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Aria2 WebUI&lt;/a&gt;。Mac还有相应的桌面客户端&lt;a href=&quot;https://github.com/yangshun1029/aria2gui&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Aria2GUI&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;操作界面有了，还需要一个插件打通百度云和aria2，这个就是&lt;a href=&quot;https://github.com/acgotaku/BaiduExporter&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;BaiduExporter&lt;/a&gt;。可惜因某些原因，这个插件已经在Chrome的官方商店下架了。每次使用需要重新安装，比较麻烦，貌似在这有&lt;a href=&quot;https://hencolle.com/2016/10/16/baidu_exporter/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;解决办法&lt;/a&gt;，我没试过。&lt;/p&gt;
-&lt;p&gt;安装完成后进入百度云的下载界面，会发现网页上多出一个「导出下载」按钮，点击它弹出的「ARIA2 RPC」就自动添加到你的下载队列里了。&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/8981-42f2eb9c2aac478b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;br&gt;然后我们可以在管理界面看到下载信息了。&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/8981-8241537ecb500a5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;安装完成后进入百度云的下载界面，会发现网页上多出一个「导出下载」按钮，点击它弹出的「ARIA2 RPC」就自动添加到你的下载队列里了。&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/72f96cbagw1f99dqm7ffwj20yg0cwgnl.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;然后我们可以在管理界面看到下载信息了。&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/72f96cbagw1f99ds8mp76j20yg0i6wgg.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
