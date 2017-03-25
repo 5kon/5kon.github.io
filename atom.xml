@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="junn.im/"/>
-  <updated>2017-03-25T03:52:52.000Z</updated>
+  <updated>2017-03-25T04:27:01.000Z</updated>
   <id>junn.im/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="junn.im/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/"/>
     <id>junn.im/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/</id>
     <published>2017-03-24T16:00:00.000Z</published>
-    <updated>2017-03-25T03:52:52.000Z</updated>
+    <updated>2017-03-25T04:27:01.000Z</updated>
     
     <content type="html">&lt;p&gt;想学Python，发现需要一个IDE来跑自己写的代码。Mac上有很多选择，自己最喜欢CodeRunner，轻量简单功能强大。就在准备掏钱的时候，发现Sublime Text 3也能打造成Python的IDE，只需安装几个Package就可以了，于是按照网上教程搞定。我输入了第一行Python代码：&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -40,6 +40,8 @@
       &lt;p&gt;想学Python，发现需要一个IDE来跑自己写的代码。Mac上有很多选择，自己最喜欢CodeRunner，轻量简单功能强大。就在准备掏钱的时候，发现Sublime Text 3也能打造成Python的IDE，只需安装几个Package就可以了，于是按照网上教程搞定。我输入了第一行Python代码：&lt;/p&gt;
     
     </summary>
+    
+      <category term="programming" scheme="junn.im/categories/programming/"/>
     
     
       <category term="Python,Sublime Text 3,中文" scheme="junn.im/tags/Python-Sublime-Text-3-%E4%B8%AD%E6%96%87/"/>
