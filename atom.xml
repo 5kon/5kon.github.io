@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="junn.im/"/>
-  <updated>2017-03-27T16:39:45.000Z</updated>
+  <updated>2017-04-09T16:16:08.000Z</updated>
   <id>junn.im/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="junn.im/2017/setting-up-sublime-text-3-for-python3-development/"/>
     <id>junn.im/2017/setting-up-sublime-text-3-for-python3-development/</id>
     <published>2017-03-26T16:00:00.000Z</published>
-    <updated>2017-03-27T16:39:45.000Z</updated>
+    <updated>2017-04-09T16:16:08.000Z</updated>
     
     <content type="html">&lt;p&gt;今天学Python时遇到如下代码：&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -54,7 +54,11 @@
       <category term="programming" scheme="junn.im/categories/programming/"/>
     
     
-      <category term="Python,Sublime Text 3,SublimeREPL" scheme="junn.im/tags/Python-Sublime-Text-3-SublimeREPL/"/>
+      <category term="Python" scheme="junn.im/tags/Python/"/>
+    
+      <category term="Sublime Text 3" scheme="junn.im/tags/Sublime-Text-3/"/>
+    
+      <category term="SublimeREPL" scheme="junn.im/tags/SublimeREPL/"/>
     
   </entry>
   
@@ -63,7 +67,7 @@
     <link href="junn.im/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/"/>
     <id>junn.im/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/</id>
     <published>2017-03-24T16:00:00.000Z</published>
-    <updated>2017-03-25T04:27:01.000Z</updated>
+    <updated>2017-04-09T16:15:53.000Z</updated>
     
     <content type="html">&lt;p&gt;想学Python，发现需要一个IDE来跑自己写的代码。Mac上有很多选择，自己最喜欢CodeRunner，轻量简单功能强大。就在准备掏钱的时候，发现Sublime Text 3也能打造成Python的IDE，只需安装几个Package就可以了，于是按照网上教程搞定。我输入了第一行Python代码：&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -87,7 +91,9 @@
       <category term="programming" scheme="junn.im/categories/programming/"/>
     
     
-      <category term="Python,Sublime Text 3,中文" scheme="junn.im/tags/Python-Sublime-Text-3-%E4%B8%AD%E6%96%87/"/>
+      <category term="Python" scheme="junn.im/tags/Python/"/>
+    
+      <category term="Sublime Text 3" scheme="junn.im/tags/Sublime-Text-3/"/>
     
   </entry>
   
@@ -96,7 +102,7 @@
     <link href="junn.im/2016/plowshare/"/>
     <id>junn.im/2016/plowshare/</id>
     <published>2016-12-27T16:00:00.000Z</published>
-    <updated>2016-12-31T10:20:12.000Z</updated>
+    <updated>2017-04-09T16:15:30.000Z</updated>
     
     <content type="html">&lt;p&gt;过去的两个月中，我时常利用VPS配合plowshare下载国外网盘资源(&lt;a href=&quot;http://junn.im/2016/using-vps-to-download-and-upload/&quot;&gt;文&lt;/a&gt;)。在实际操作中，我发现我使用的plowshare并没有完全支持Github中plowshare申明支持的&lt;a href=&quot;https://github.com/mcrapet/plowshare-modules-legacy/blob/master/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;网盘清单&lt;/a&gt;。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -123,6 +129,8 @@
     
     </summary>
     
+      <category term="programming" scheme="junn.im/categories/programming/"/>
+    
     
       <category term="plowshare" scheme="junn.im/tags/plowshare/"/>
     
@@ -133,7 +141,7 @@
     <link href="junn.im/2016/download-from-baiduyun-using-aria2/"/>
     <id>junn.im/2016/download-from-baiduyun-using-aria2/</id>
     <published>2016-10-27T16:00:00.000Z</published>
-    <updated>2016-10-30T02:19:34.000Z</updated>
+    <updated>2017-04-09T16:15:17.000Z</updated>
     
     <content type="html">&lt;p&gt;上一篇写到了使用VPS下载国外网盘资源并将资源上传至百度云，费时费力绕这么大一圈把资源搬回墙内最终目的还是为了下载。作为国内唯一还能「一用」的大公司网盘，用户体验自然差到极点，8秒小电影、无理由限制上传下载速度都是家常便饭。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;我曾利用Tampermonkey里的百度云脚本获取可以在迅雷中使用的下载链接，这些脚本经常被百度封杀，不是长久之计，直到后来我发现了aria2这一利器。&lt;/p&gt;
 &lt;h2 id=&quot;什么是aria2&quot;&gt;&lt;a href=&quot;#什么是aria2&quot; class=&quot;headerlink&quot; title=&quot;什么是aria2&quot;&gt;&lt;/a&gt;什么是aria2&lt;/h2&gt;&lt;blockquote&gt;
@@ -168,8 +176,14 @@
     
     </summary>
     
+      <category term="programming" scheme="junn.im/categories/programming/"/>
     
-      <category term="aria2,百度云,Mac" scheme="junn.im/tags/aria2-%E7%99%BE%E5%BA%A6%E4%BA%91-Mac/"/>
+    
+      <category term="aria2" scheme="junn.im/tags/aria2/"/>
+    
+      <category term="百度云" scheme="junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
+    
+      <category term="Mac" scheme="junn.im/tags/Mac/"/>
     
   </entry>
   
@@ -178,7 +192,7 @@
     <link href="junn.im/2016/using-vps-to-download-and-upload/"/>
     <id>junn.im/2016/using-vps-to-download-and-upload/</id>
     <published>2016-10-19T16:00:00.000Z</published>
-    <updated>2016-11-25T12:16:53.000Z</updated>
+    <updated>2017-04-09T16:14:59.000Z</updated>
     
     <content type="html">&lt;p&gt;最近需要下载国外网盘资源，无奈部分国外网盘被和谐，即使没被和谐的网盘下载速度和稳定性都不甚理想。曾经听说利用VPS可以下载国外网盘资源，正好自己手上也有闲置的VPS，我决定亲自实践一下利用VPS下载国外网盘资源，并且最后将此资源上传到百度云，在国内可以正常下载。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;首先声明：自己是代码小白，以下内容均是自己尝试出来的，如有错误请指正。&lt;/strong&gt;&lt;/p&gt;
@@ -310,8 +324,14 @@
     
     </summary>
     
+      <category term="programming" scheme="junn.im/categories/programming/"/>
     
-      <category term="vps,网盘,百度云" scheme="junn.im/tags/vps-%E7%BD%91%E7%9B%98-%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
+    
+      <category term="百度云" scheme="junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
+    
+      <category term="vps" scheme="junn.im/tags/vps/"/>
+    
+      <category term="网盘" scheme="junn.im/tags/%E7%BD%91%E7%9B%98/"/>
     
   </entry>
   
@@ -320,7 +340,7 @@
     <link href="junn.im/2016/one-year-with-ingress/"/>
     <id>junn.im/2016/one-year-with-ingress/</id>
     <published>2016-04-20T16:00:00.000Z</published>
-    <updated>2016-05-30T04:08:49.000Z</updated>
+    <updated>2017-04-09T16:14:26.000Z</updated>
     
     <content type="html">&lt;p&gt;今天小雨，上班路上我打开了ingress，8:08am，我hack了一尊铜像portal，于是我获得了「Sojourner」的黑色徽章。「Sojourner」黑色徽章应该算是ingress中难度最大的几个成就之一，能坚持360天不中断签到连我自己也没想到。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -348,6 +368,8 @@
     
     </summary>
     
+      <category term="life" scheme="junn.im/categories/life/"/>
+    
     
       <category term="ingress" scheme="junn.im/tags/ingress/"/>
     
@@ -358,7 +380,7 @@
     <link href="junn.im/2016/hello-world/"/>
     <id>junn.im/2016/hello-world/</id>
     <published>2016-04-10T04:00:48.000Z</published>
-    <updated>2016-05-28T16:58:32.000Z</updated>
+    <updated>2017-04-09T16:14:02.000Z</updated>
     
     <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -380,6 +402,14 @@
     
     </summary>
     
+      <category term="blog" scheme="junn.im/categories/blog/"/>
+    
+    
+      <category term="blog" scheme="junn.im/tags/blog/"/>
+    
+      <category term="hexo" scheme="junn.im/tags/hexo/"/>
+    
+      <category term="博客" scheme="junn.im/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
