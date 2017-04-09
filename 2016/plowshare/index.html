@@ -1,4 +1,369 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 完善Plowshare使用体验 · Jun's Blog</title><meta name="description" content="完善Plowshare使用体验 - Jun"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">HOME</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">完善Plowshare使用体验</h1><div class="post-time">Dec 28, 2016</div><div class="post-content"><p>过去的两个月中，我时常利用VPS配合plowshare下载国外网盘资源(<a href="http://junn.im/2016/using-vps-to-download-and-upload/">文</a>)。在实际操作中，我发现我使用的plowshare并没有完全支持Github中plowshare申明支持的<a href="https://github.com/mcrapet/plowshare-modules-legacy/blob/master/README.md" target="_blank" rel="external">网盘清单</a>。</p>
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="plowshare," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jun's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="过去的两个月中，我时常利用VPS配合plowshare下载国外网盘资源(文)。在实际操作中，我发现我使用的plowshare并没有完全支持Github中plowshare申明支持的网盘清单。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="完善Plowshare使用体验">
+<meta property="og:url" content="junn.im/2016/plowshare/index.html">
+<meta property="og:site_name" content="Jun's Blog">
+<meta property="og:description" content="过去的两个月中，我时常利用VPS配合plowshare下载国外网盘资源(文)。在实际操作中，我发现我使用的plowshare并没有完全支持Github中plowshare申明支持的网盘清单。">
+<meta property="og:updated_time" content="2016-12-31T10:20:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="完善Plowshare使用体验">
+<meta name="twitter:description" content="过去的两个月中，我时常利用VPS配合plowshare下载国外网盘资源(文)。在实际操作中，我发现我使用的plowshare并没有完全支持Github中plowshare申明支持的网盘清单。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="junn.im/2016/plowshare/"/>
+
+
+
+
+
+  <title> 完善Plowshare使用体验 | Jun's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-78447287-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jun's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="junn.im/2016/plowshare/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jun's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                完善Plowshare使用体验
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-28T00:00:00+08:00">
+                2016-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/plowshare/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/plowshare/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>过去的两个月中，我时常利用VPS配合plowshare下载国外网盘资源(<a href="http://junn.im/2016/using-vps-to-download-and-upload/">文</a>)。在实际操作中，我发现我使用的plowshare并没有完全支持Github中plowshare申明支持的<a href="https://github.com/mcrapet/plowshare-modules-legacy/blob/master/README.md" target="_blank" rel="external">网盘清单</a>。</p>
 <a id="more"></a>
 <h2 id="寻找原因"><a href="#寻找原因" class="headerlink" title="寻找原因"></a>寻找原因</h2><p>《<a href="http://junn.im/2016/using-vps-to-download-and-upload/">利用VPS下载国外网盘资源并上传至百度云</a>》一文中我在CentOS 7安装完plowshare就发现<code>plowmod</code>命令无法使用。按照plowshare安装<a href="https://github.com/mcrapet/plowshare/blob/master/INSTALL" target="_blank" rel="external">流程</a>，可以使用<code>plowmod --install</code>这句命令安装外部模块（external modules），也就是网盘模块，但我每次都不成功，终端显示<code>-bash: plowmod: command not found</code>，无法找到此命令，说明在我安装的plowshare中不存在<code>plowmod</code>这个功能。于是我去查看了Debian系统中plowshare的<a href="https://packages.debian.org/sid/plowshare" target="_blank" rel="external">官方包</a>和CentOS的<a href="https://pkgs.org/centos-7/epel-x86_64/plowshare-1.0.6-1.el7.noarch.rpm.html" target="_blank" rel="external">包</a>，发现两者的plowshare居然差了一个大版本，前者版本号已经是2.1.5，后者版本号才1.0.6。所以我判断原因是CentOS下的plowshare版本过低导致其中缺少<code>plowmod</code>功能。</p>
 <h2 id="重新安装plowshare"><a href="#重新安装plowshare" class="headerlink" title="重新安装plowshare"></a>重新安装plowshare</h2><p>因为plowshare在CentOS中版本过低，所以将VPS系统设置成Debian就可以安装最新的plowshare。于是我重装了我的VPS，系统设置为Debian，并在Debian中安装plowshare。在安装过程中发现，Debian找不到plowshare，通过在Github中提交<a href="https://github.com/mcrapet/plowshare/issues/76" target="_blank" rel="external">issue</a>我知道Debian Jessie中plowshare也是老版本并且名字叫<code>plowshare4</code>，先得安装<code>plowshare4</code>才能再安装新版的plowshare（注：我安装的时候Debian的plowshare还是2.1.5版，需要通过如下方法安装升级，现已变成2.1.6版，应该可以直接安装）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">root@alpha:~<span class="comment"># sudo apt-get update</span></span><br><span class="line">Get:1 http://security.debian.org jessie/updates InRelease [63.1 kB]</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">Get:22 http://ftp.debian.org jessie-updates/non-free amd64 Packages [516 B]</span><br><span class="line">Fetched 12.5 MB <span class="keyword">in</span> 49s (255 kB/s)</span><br><span class="line">Reading package lists... Done</span><br><span class="line">root@alpha:~<span class="comment"># apt-get install plowshare</span></span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree... Done</span><br><span class="line">E: Unable to locate package plowshare</span><br><span class="line">root@alpha:~<span class="comment"># apt-get install plowshare4</span></span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree... Done</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">Setting up plowshare4 (1.0.5-1+deb8u1) ...</span><br></pre></td></tr></table></figure></p>
@@ -15,12 +380,394 @@
 <p>一共支持93个网盘，当然其中有一些网盘在使用过程中需要高级账户，不过想想利用<code>plowshare</code>然后配合<code>9kw.eu</code>的CAPTCHA读取功能，让VPS代劳帮你下载网盘资源，还是比较惬意的事。</p>
 <h2 id="安装bypy"><a href="#安装bypy" class="headerlink" title="安装bypy"></a>安装bypy</h2><p>如果还需要上传到百度云，则可再安装bypy。安装步骤和在CentOS中<a href="http://junn.im/2016/using-vps-to-download-and-upload/">安装步骤</a>类似，我好像是通过下面几行命令安装，不太记得了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-pip</span><br><span class="line">pip install requests</span><br><span class="line">pip2 install -U requests</span><br><span class="line">pip install bypy</span><br><span class="line"></span><br><span class="line"><span class="comment">#如果遇到</span></span><br><span class="line">ImportError: cannot import name <span class="string">'IncompleteRead'</span></span><br><span class="line">先</span><br><span class="line">apt-get remove python-pip</span><br><span class="line">然后</span><br><span class="line">easy_install -U pip</span><br><span class="line">pip install bypy</span><br></pre></td></tr></table></figure></p>
 <p><strong>声明：我是代码小白，以上步骤和代码仅供参考。</strong></p>
-</div></article></div></section><footer><div class="paginator"><a href="/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/" class="prev">PREV</a><a href="/2016/download-from-baiduyun-using-aria2/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'junn';
-var disqus_identifier = '2016/plowshare/';
-var disqus_title = '完善Plowshare使用体验';
-var disqus_url = 'junn.im/2016/plowshare/';
-(function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();</script><script id="dsq-count-scr" src="//junn.disqus.com/count.js" async></script><div class="copyright"><p>© 2016 - 2017 <a href="http://junn.im">Jun's Blog</a>. Powered by <a href="https://hexo.io">Hexo</a>. Theme by <a href = "https://github.com/pinggod/hexo-theme-apollo">pinggod</a>.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-78447287-1",'auto');ga('send','pageview');</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/plowshare/" rel="tag"># plowshare</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/download-from-baiduyun-using-aria2/" rel="next" title="Mac使用aria2下载百度云资源">
+                <i class="fa fa-chevron-left"></i> Mac使用aria2下载百度云资源
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/" rel="prev" title="Sublime Text 3运行Python时控制台无法输出中文的解决方法">
+                Sublime Text 3运行Python时控制台无法输出中文的解决方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jun" />
+          <p class="site-author-name" itemprop="name">Jun</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#寻找原因"><span class="nav-number">1.</span> <span class="nav-text">寻找原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重新安装plowshare"><span class="nav-number">2.</span> <span class="nav-text">重新安装plowshare</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升级plowshare"><span class="nav-number">3.</span> <span class="nav-text">升级plowshare</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装bypy"><span class="nav-number">4.</span> <span class="nav-text">安装bypy</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jun</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://junn.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'junn.im/2016/plowshare/';
+          this.page.identifier = '2016/plowshare/';
+          this.page.title = '完善Plowshare使用体验';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://junn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
