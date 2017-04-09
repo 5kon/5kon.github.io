@@ -179,9 +179,9 @@
       <category term="programming" scheme="junn.im/categories/programming/"/>
     
     
-      <category term="aria2" scheme="junn.im/tags/aria2/"/>
-    
       <category term="百度云" scheme="junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
+    
+      <category term="aria2" scheme="junn.im/tags/aria2/"/>
     
       <category term="Mac" scheme="junn.im/tags/Mac/"/>
     
@@ -327,11 +327,11 @@
       <category term="programming" scheme="junn.im/categories/programming/"/>
     
     
-      <category term="百度云" scheme="junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
-    
       <category term="vps" scheme="junn.im/tags/vps/"/>
     
       <category term="网盘" scheme="junn.im/tags/%E7%BD%91%E7%9B%98/"/>
+    
+      <category term="百度云" scheme="junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
     
   </entry>
   
