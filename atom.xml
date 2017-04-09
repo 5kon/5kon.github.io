@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="junn.im/"/>
+  <link href="http://junn.im/"/>
   <updated>2017-04-09T16:16:08.000Z</updated>
-  <id>junn.im/</id>
+  <id>http://junn.im/</id>
   
   <author>
     <name>Jun</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Sublime Text 3配置Python交互环境</title>
-    <link href="junn.im/2017/setting-up-sublime-text-3-for-python3-development/"/>
-    <id>junn.im/2017/setting-up-sublime-text-3-for-python3-development/</id>
+    <link href="http://junn.im/2017/setting-up-sublime-text-3-for-python3-development/"/>
+    <id>http://junn.im/2017/setting-up-sublime-text-3-for-python3-development/</id>
     <published>2017-03-26T16:00:00.000Z</published>
     <updated>2017-04-09T16:16:08.000Z</updated>
     
@@ -51,21 +51,21 @@
     
     </summary>
     
-      <category term="programming" scheme="junn.im/categories/programming/"/>
+      <category term="programming" scheme="http://junn.im/categories/programming/"/>
     
     
-      <category term="Python" scheme="junn.im/tags/Python/"/>
+      <category term="Python" scheme="http://junn.im/tags/Python/"/>
     
-      <category term="Sublime Text 3" scheme="junn.im/tags/Sublime-Text-3/"/>
+      <category term="Sublime Text 3" scheme="http://junn.im/tags/Sublime-Text-3/"/>
     
-      <category term="SublimeREPL" scheme="junn.im/tags/SublimeREPL/"/>
+      <category term="SublimeREPL" scheme="http://junn.im/tags/SublimeREPL/"/>
     
   </entry>
   
   <entry>
     <title>Sublime Text 3运行Python时控制台无法输出中文的解决方法</title>
-    <link href="junn.im/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/"/>
-    <id>junn.im/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/</id>
+    <link href="http://junn.im/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/"/>
+    <id>http://junn.im/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/</id>
     <published>2017-03-24T16:00:00.000Z</published>
     <updated>2017-04-09T16:15:53.000Z</updated>
     
@@ -88,19 +88,19 @@
     
     </summary>
     
-      <category term="programming" scheme="junn.im/categories/programming/"/>
+      <category term="programming" scheme="http://junn.im/categories/programming/"/>
     
     
-      <category term="Python" scheme="junn.im/tags/Python/"/>
+      <category term="Python" scheme="http://junn.im/tags/Python/"/>
     
-      <category term="Sublime Text 3" scheme="junn.im/tags/Sublime-Text-3/"/>
+      <category term="Sublime Text 3" scheme="http://junn.im/tags/Sublime-Text-3/"/>
     
   </entry>
   
   <entry>
     <title>完善Plowshare使用体验</title>
-    <link href="junn.im/2016/plowshare/"/>
-    <id>junn.im/2016/plowshare/</id>
+    <link href="http://junn.im/2016/plowshare/"/>
+    <id>http://junn.im/2016/plowshare/</id>
     <published>2016-12-27T16:00:00.000Z</published>
     <updated>2017-04-09T16:18:57.000Z</updated>
     
@@ -129,17 +129,17 @@
     
     </summary>
     
-      <category term="programming" scheme="junn.im/categories/programming/"/>
+      <category term="programming" scheme="http://junn.im/categories/programming/"/>
     
     
-      <category term="plowshare" scheme="junn.im/tags/plowshare/"/>
+      <category term="plowshare" scheme="http://junn.im/tags/plowshare/"/>
     
   </entry>
   
   <entry>
     <title>Mac使用aria2下载百度云资源</title>
-    <link href="junn.im/2016/download-from-baiduyun-using-aria2/"/>
-    <id>junn.im/2016/download-from-baiduyun-using-aria2/</id>
+    <link href="http://junn.im/2016/download-from-baiduyun-using-aria2/"/>
+    <id>http://junn.im/2016/download-from-baiduyun-using-aria2/</id>
     <published>2016-10-27T16:00:00.000Z</published>
     <updated>2017-04-09T16:19:08.000Z</updated>
     
@@ -176,21 +176,21 @@
     
     </summary>
     
-      <category term="programming" scheme="junn.im/categories/programming/"/>
+      <category term="programming" scheme="http://junn.im/categories/programming/"/>
     
     
-      <category term="百度云" scheme="junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
+      <category term="百度云" scheme="http://junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
     
-      <category term="aria2" scheme="junn.im/tags/aria2/"/>
+      <category term="aria2" scheme="http://junn.im/tags/aria2/"/>
     
-      <category term="Mac" scheme="junn.im/tags/Mac/"/>
+      <category term="Mac" scheme="http://junn.im/tags/Mac/"/>
     
   </entry>
   
   <entry>
     <title>利用VPS下载国外网盘资源并上传至百度云</title>
-    <link href="junn.im/2016/using-vps-to-download-and-upload/"/>
-    <id>junn.im/2016/using-vps-to-download-and-upload/</id>
+    <link href="http://junn.im/2016/using-vps-to-download-and-upload/"/>
+    <id>http://junn.im/2016/using-vps-to-download-and-upload/</id>
     <published>2016-10-19T16:00:00.000Z</published>
     <updated>2017-04-09T16:19:21.000Z</updated>
     
@@ -324,21 +324,21 @@
     
     </summary>
     
-      <category term="programming" scheme="junn.im/categories/programming/"/>
+      <category term="programming" scheme="http://junn.im/categories/programming/"/>
     
     
-      <category term="vps" scheme="junn.im/tags/vps/"/>
+      <category term="vps" scheme="http://junn.im/tags/vps/"/>
     
-      <category term="网盘" scheme="junn.im/tags/%E7%BD%91%E7%9B%98/"/>
+      <category term="网盘" scheme="http://junn.im/tags/%E7%BD%91%E7%9B%98/"/>
     
-      <category term="百度云" scheme="junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
+      <category term="百度云" scheme="http://junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
     
   </entry>
   
   <entry>
     <title>我与ingress的360天</title>
-    <link href="junn.im/2016/one-year-with-ingress/"/>
-    <id>junn.im/2016/one-year-with-ingress/</id>
+    <link href="http://junn.im/2016/one-year-with-ingress/"/>
+    <id>http://junn.im/2016/one-year-with-ingress/</id>
     <published>2016-04-20T16:00:00.000Z</published>
     <updated>2017-04-09T16:19:44.000Z</updated>
     
@@ -368,17 +368,17 @@
     
     </summary>
     
-      <category term="life" scheme="junn.im/categories/life/"/>
+      <category term="life" scheme="http://junn.im/categories/life/"/>
     
     
-      <category term="ingress" scheme="junn.im/tags/ingress/"/>
+      <category term="ingress" scheme="http://junn.im/tags/ingress/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="junn.im/2016/hello-world/"/>
-    <id>junn.im/2016/hello-world/</id>
+    <link href="http://junn.im/2016/hello-world/"/>
+    <id>http://junn.im/2016/hello-world/</id>
     <published>2016-04-10T04:00:48.000Z</published>
     <updated>2017-04-09T16:20:03.000Z</updated>
     
@@ -402,14 +402,14 @@
     
     </summary>
     
-      <category term="blog" scheme="junn.im/categories/blog/"/>
+      <category term="blog" scheme="http://junn.im/categories/blog/"/>
     
     
-      <category term="blog" scheme="junn.im/tags/blog/"/>
+      <category term="blog" scheme="http://junn.im/tags/blog/"/>
     
-      <category term="hexo" scheme="junn.im/tags/hexo/"/>
+      <category term="hexo" scheme="http://junn.im/tags/hexo/"/>
     
-      <category term="博客" scheme="junn.im/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="http://junn.im/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
