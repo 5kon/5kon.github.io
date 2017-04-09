@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://junn.im/about/index.html</loc>
+    
+    <lastmod>2017-04-09T17:16:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://junn.im/tags/index.html</loc>
     
     <lastmod>2017-04-09T16:42:01.000Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://junn.im/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/</loc>
     
     <lastmod>2017-04-09T16:15:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://junn.im/about/index.html</loc>
-    
-    <lastmod>2016-10-22T17:02:47.000Z</lastmod>
     
   </url>
   
