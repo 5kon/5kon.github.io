@@ -74,6 +74,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="Jun's Blog" type="application/atom+xml" />
 
@@ -109,7 +111,7 @@ About this blog
 2015年9月28日，scriptogr.am正式宣布关闭。两年多时间，在上面写了24篇文章。之后开始寻找其他博客平台。尝试过Farbox，觉得可能会因开发者问题关站，弃。后利用Jekyll搭建Github Pages数次没能成功。
 
 2016年1月1">
-<meta property="og:updated_time" content="2017-04-09T17:22:16.000Z">
+<meta property="og:updated_time" content="2017-04-10T12:02:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于">
 <meta name="twitter:description" content="About me  
@@ -323,7 +325,7 @@ About this blog
 </li>
 <li><p>2016年10月23日，发现博客载入时经常卡在加载360的<code>fonts.useso.com</code>，一查才知道原来已经<a href="http://weibo.com/2596505910/E68hZcZPv" target="_blank" rel="external">停止运行</a>了，幸好目前谷歌字体库是直接可以访问的，换回Google的<code>fonts.googleapis.com</code>。</p>
 </li>
-<li><p>2017年4月10日，将博客主题由<a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank" rel="external">apollo</a>换成<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Next.Mist</a>。同时因多说评论系统即将<a href="http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241" target="_blank" rel="external">关停</a>，配置Disqus评论系统。</p>
+<li><p>2017年4月10日，将博客主题由<a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank" rel="external">apollo</a>换成<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Next.Mist</a>。同时因多说评论系统即将<a href="http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241" target="_blank" rel="external">关停</a>，配置HyperComments评论系统。</p>
 </li>
 </ul>
 
@@ -338,12 +340,7 @@ About this blog
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+      <div id="hypercomments_widget"></div>
     
   </div>
 
@@ -556,28 +553,30 @@ About this blog
 
   
 
-    
-      <script id="dsq-count-scr" src="https://junn.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://junn.im/about/index.html';
-          this.page.identifier = 'about/index.html';
-          this.page.title = '关于';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://junn.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
 
 
 
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 89463, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 89463, xid: "about/index.html"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/89463/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
 
 	
 
@@ -585,19 +584,7 @@ About this blog
 
 
 
-  
 
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
