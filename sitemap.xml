@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://junn.im/about/index.html</loc>
+    <loc>http://junn.im/2016/one-year-with-ingress/</loc>
     
-    <lastmod>2017-04-14T13:29:59.000Z</lastmod>
+    <lastmod>2017-04-26T13:21:31.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://junn.im/lugu-lake.html</loc>
     
-    <lastmod>2017-04-10T14:14:08.000Z</lastmod>
+    <lastmod>2017-04-14T14:49:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://junn.im/about/index.html</loc>
+    
+    <lastmod>2017-04-14T13:29:59.000Z</lastmod>
     
   </url>
   
@@ -47,13 +54,6 @@
     <loc>http://junn.im/2016/using-vps-to-download-and-upload/</loc>
     
     <lastmod>2017-04-10T13:22:47.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://junn.im/2016/one-year-with-ingress/</loc>
-    
-    <lastmod>2017-04-10T13:22:44.000Z</lastmod>
     
   </url>
   
