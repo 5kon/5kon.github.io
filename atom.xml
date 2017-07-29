@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://junn.im/"/>
-  <updated>2017-07-29T14:43:08.000Z</updated>
+  <updated>2017-07-29T14:45:59.000Z</updated>
   <id>http://junn.im/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://junn.im/2017/sad-day-for-iOS-users-in-china/"/>
     <id>http://junn.im/2017/sad-day-for-iOS-users-in-china/</id>
     <published>2017-07-28T16:00:00.000Z</published>
-    <updated>2017-07-29T14:43:08.000Z</updated>
+    <updated>2017-07-29T14:45:59.000Z</updated>
     
     <content type="html">&lt;p&gt;Today is a sad day for iOS users in China who have set their iTunes store mainly in China. Because all the iOS apps including Surge, Shadowrocket and Potatso which can go through the great firewall have been pulled out of the iTunes store of China.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -232,9 +232,9 @@
       <category term="Programming" scheme="http://junn.im/categories/Programming/"/>
     
     
-      <category term="aria2" scheme="http://junn.im/tags/aria2/"/>
-    
       <category term="百度云" scheme="http://junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
+    
+      <category term="aria2" scheme="http://junn.im/tags/aria2/"/>
     
       <category term="Mac" scheme="http://junn.im/tags/Mac/"/>
     
@@ -380,11 +380,11 @@
       <category term="Programming" scheme="http://junn.im/categories/Programming/"/>
     
     
-      <category term="百度云" scheme="http://junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
-    
       <category term="vps" scheme="http://junn.im/tags/vps/"/>
     
       <category term="网盘" scheme="http://junn.im/tags/%E7%BD%91%E7%9B%98/"/>
+    
+      <category term="百度云" scheme="http://junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
     
   </entry>
   
