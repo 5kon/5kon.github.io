@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://junn.im/2016/ingress/</loc>
+    
+    <lastmod>2018-04-04T15:48:48.726Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://junn.im/2017/sad-day-for-iOS-users-in-china/</loc>
     
     <lastmod>2017-07-29T14:45:59.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://junn.im/2016/plowshare/</loc>
     
     <lastmod>2017-05-14T08:59:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://junn.im/2016/one-year-with-ingress/</loc>
-    
-    <lastmod>2017-04-26T13:21:31.000Z</lastmod>
     
   </url>
   
