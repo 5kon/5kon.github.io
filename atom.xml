@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://junn.im/"/>
-  <updated>2017-07-29T14:45:59.000Z</updated>
+  <updated>2019-04-09T16:28:37.867Z</updated>
   <id>http://junn.im/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>升级Mac自带Python版本</title>
+    <link href="http://junn.im/2019/update-python-for-mac/"/>
+    <id>http://junn.im/2019/update-python-for-mac/</id>
+    <published>2019-04-09T16:00:00.000Z</published>
+    <updated>2019-04-09T16:28:37.867Z</updated>
+    
+    <content type="html">&lt;p&gt;最近捡起荒废已久的Python从头开始学，发现Mac自带的2.7版本将于2020年停止支持，于是决定升级一下。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;strong&gt;第一步：下载Python最新版本&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;官网下载地址：&lt;a href=&quot;https://www.python.org/downloads/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.python.org/downloads/&lt;/a&gt;，我下的时候最新版为3.7.3&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二步：安装&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;点击下载好的pkg文件进行安装&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第三步：修改Mac自带的python路径&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;安装后在终端中输入：&lt;code&gt;python -V&lt;/code&gt;，发现默认仍然使用2.7版。在网上查询了下，很多人通过修改根目录下的&lt;code&gt;.bash_profile&lt;/code&gt;文件来改变Mac默认的Python路径。我找了半天发现没有这个文件，有两个解决办法：一个是自己新建一个 &lt;code&gt;.bash_profile&lt;/code&gt;文件并输入相应代码，另一个是进入    &lt;code&gt;/Applications/Python 3.7&lt;/code&gt;路径，双击&lt;code&gt;Update Shell Profile.command&lt;/code&gt;文件就能在根目录下生成&lt;code&gt;.bash_profile&lt;/code&gt;文件。&lt;/p&gt;
+&lt;p&gt;在生成的&lt;code&gt;.bash_profile&lt;/code&gt;文件的最后一行加入：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;alias python=&amp;quot;/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.bash_profile&lt;/code&gt;文件最终代码如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# Setting PATH for Python 3.7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# The original version is saved in .bash_profile.pysave&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PATH=&amp;quot;/Library/Frameworks/Python.framework/Versions/3.7/bin:$&amp;#123;PATH&amp;#125;&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export PATH&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias python=&amp;quot;/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;重启一下终端，再用&lt;code&gt;python -V&lt;/code&gt;验证一下就可以了。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近捡起荒废已久的Python从头开始学，发现Mac自带的2.7版本将于2020年停止支持，于是决定升级一下。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Programming" scheme="http://junn.im/categories/Programming/"/>
+    
+    
+      <category term="Python" scheme="http://junn.im/tags/Python/"/>
+    
+      <category term="Mac" scheme="http://junn.im/tags/Mac/"/>
+    
+  </entry>
   
   <entry>
     <title>Sad Day for iOS Users in China</title>
