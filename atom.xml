@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://junn.im/"/>
-  <updated>2019-04-09T16:28:37.867Z</updated>
+  <updated>2019-04-11T14:10:19.859Z</updated>
   <id>http://junn.im/</id>
   
   <author>
@@ -20,34 +20,39 @@
     <link href="http://junn.im/2019/update-python-for-mac/"/>
     <id>http://junn.im/2019/update-python-for-mac/</id>
     <published>2019-04-09T16:00:00.000Z</published>
-    <updated>2019-04-09T16:28:37.867Z</updated>
+    <updated>2019-04-11T14:10:19.859Z</updated>
     
-    <content type="html">&lt;p&gt;最近捡起荒废已久的Python从头开始学，发现Mac自带的2.7版本将于2020年停止支持，于是决定升级一下。&lt;/p&gt;
+    <content type="html">&lt;p&gt;最近捡起荒废已久的Python从头开始学，在安装&lt;code&gt;pyinstaller&lt;/code&gt;时发现Mac自带的2.7版本将于2020年停止支持，于是决定升级一下。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;blockquote&gt;
+&lt;p&gt;DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won’t be maintained after that date. A future version of pip will drop support for Python 2.7.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;第一步：下载Python最新版本&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;官网下载地址：&lt;a href=&quot;https://www.python.org/downloads/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.python.org/downloads/&lt;/a&gt;，我下的时候最新版为3.7.3&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;第二步：安装&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;点击下载好的pkg文件进行安装&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;第三步：修改Mac自带的python路径&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;安装后在终端中输入：&lt;code&gt;python -V&lt;/code&gt;，发现默认仍然使用2.7版。在网上查询了下，很多人通过修改根目录下的&lt;code&gt;.bash_profile&lt;/code&gt;文件来改变Mac默认的Python路径。我找了半天发现没有这个文件，有两个解决办法：一个是自己新建一个 &lt;code&gt;.bash_profile&lt;/code&gt;文件并输入相应代码，另一个是进入    &lt;code&gt;/Applications/Python 3.7&lt;/code&gt;路径，双击&lt;code&gt;Update Shell Profile.command&lt;/code&gt;文件就能在根目录下生成&lt;code&gt;.bash_profile&lt;/code&gt;文件。&lt;/p&gt;
-&lt;p&gt;在生成的&lt;code&gt;.bash_profile&lt;/code&gt;文件的最后一行加入：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;alias python=&amp;quot;/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;安装后在终端中输入：&lt;code&gt;python -V&lt;/code&gt;，发现默认仍然使用2.7版。在网上查询了下，很多人通过修改根目录下的&lt;code&gt;.bash_profile&lt;/code&gt;文件来改变Mac默认的Python路径。我找了半天发现没有这个文件，有两个解决办法：一个是自己新建一个 &lt;code&gt;.bash_profile&lt;/code&gt;文件并输入相应代码，另一个是进入&lt;code&gt;/Applications/Python 3.7&lt;/code&gt;路径，双击&lt;code&gt;Update Shell Profile.command&lt;/code&gt;文件就能在根目录下生成&lt;code&gt;.bash_profile&lt;/code&gt;文件。&lt;/p&gt;
+&lt;p&gt;打开&lt;code&gt;.bash_profile&lt;/code&gt;文件：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;open ~/.bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在其中最后一行加入：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;alias python=&amp;quot;/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;.bash_profile&lt;/code&gt;文件最终代码如下：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# Setting PATH for Python 3.7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# The original version is saved in .bash_profile.pysave&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PATH=&amp;quot;/Library/Frameworks/Python.framework/Versions/3.7/bin:$&amp;#123;PATH&amp;#125;&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export PATH&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias python=&amp;quot;/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;重启一下终端，再用&lt;code&gt;python -V&lt;/code&gt;验证一下就可以了。&lt;/p&gt;
+&lt;p&gt;嗯，时隔一年多，居然更新了，居然还是博客3周年。争取今年把2018年落下的补上，我这是有多懒😄️。&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;最近捡起荒废已久的Python从头开始学，发现Mac自带的2.7版本将于2020年停止支持，于是决定升级一下。&lt;/p&gt;
+      &lt;p&gt;最近捡起荒废已久的Python从头开始学，在安装&lt;code&gt;pyinstaller&lt;/code&gt;时发现Mac自带的2.7版本将于2020年停止支持，于是决定升级一下。&lt;/p&gt;
     
     </summary>
     
       <category term="Programming" scheme="http://junn.im/categories/Programming/"/>
     
     
-      <category term="Python" scheme="http://junn.im/tags/Python/"/>
-    
       <category term="Mac" scheme="http://junn.im/tags/Mac/"/>
+    
+      <category term="Python" scheme="http://junn.im/tags/Python/"/>
     
   </entry>
   
@@ -56,7 +61,7 @@
     <link href="http://junn.im/2017/sad-day-for-iOS-users-in-china/"/>
     <id>http://junn.im/2017/sad-day-for-iOS-users-in-china/</id>
     <published>2017-07-28T16:00:00.000Z</published>
-    <updated>2017-07-29T14:45:59.000Z</updated>
+    <updated>2017-07-29T14:43:08.000Z</updated>
     
     <content type="html">&lt;p&gt;Today is a sad day for iOS users in China who have set their iTunes store mainly in China. Because all the iOS apps including Surge, Shadowrocket and Potatso which can go through the great firewall have been pulled out of the iTunes store of China.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -106,7 +111,7 @@
     <link href="http://junn.im/2017/setting-up-sublime-text-3-for-python3-development/"/>
     <id>http://junn.im/2017/setting-up-sublime-text-3-for-python3-development/</id>
     <published>2017-03-26T16:00:00.000Z</published>
-    <updated>2017-04-10T13:22:54.000Z</updated>
+    <updated>2017-04-10T13:21:52.000Z</updated>
     
     <content type="html">&lt;p&gt;今天学Python时遇到如下代码：&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -153,7 +158,7 @@
     <link href="http://junn.im/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/"/>
     <id>http://junn.im/2017/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3/</id>
     <published>2017-03-24T16:00:00.000Z</published>
-    <updated>2017-04-10T13:22:53.000Z</updated>
+    <updated>2017-04-10T13:21:58.000Z</updated>
     
     <content type="html">&lt;p&gt;想学Python，发现需要一个IDE来跑自己写的代码。Mac上有很多选择，自己最喜欢CodeRunner，轻量简单功能强大。就在准备掏钱的时候，发现Sublime Text 3也能打造成Python的IDE，只需安装几个Package就可以了，于是按照网上教程搞定。我输入了第一行Python代码：&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -230,7 +235,7 @@
     <link href="http://junn.im/2016/download-from-baiduyun-using-aria2/"/>
     <id>http://junn.im/2016/download-from-baiduyun-using-aria2/</id>
     <published>2016-10-27T16:00:00.000Z</published>
-    <updated>2017-04-10T13:22:48.000Z</updated>
+    <updated>2017-04-10T13:22:12.000Z</updated>
     
     <content type="html">&lt;p&gt;上一篇写到了使用VPS下载国外网盘资源并将资源上传至百度云，费时费力绕这么大一圈把资源搬回墙内最终目的还是为了下载。作为国内唯一还能「一用」的大公司网盘，用户体验自然差到极点，8秒小电影、无理由限制上传下载速度都是家常便饭。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;我曾利用Tampermonkey里的百度云脚本获取可以在迅雷中使用的下载链接，这些脚本经常被百度封杀，不是长久之计，直到后来我发现了aria2这一利器。&lt;/p&gt;
 &lt;h2 id=&quot;什么是aria2&quot;&gt;&lt;a href=&quot;#什么是aria2&quot; class=&quot;headerlink&quot; title=&quot;什么是aria2&quot;&gt;&lt;/a&gt;什么是aria2&lt;/h2&gt;&lt;blockquote&gt;
@@ -268,9 +273,9 @@
       <category term="Programming" scheme="http://junn.im/categories/Programming/"/>
     
     
-      <category term="百度云" scheme="http://junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
-    
       <category term="aria2" scheme="http://junn.im/tags/aria2/"/>
+    
+      <category term="百度云" scheme="http://junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
     
       <category term="Mac" scheme="http://junn.im/tags/Mac/"/>
     
@@ -281,7 +286,7 @@
     <link href="http://junn.im/2016/using-vps-to-download-and-upload/"/>
     <id>http://junn.im/2016/using-vps-to-download-and-upload/</id>
     <published>2016-10-19T16:00:00.000Z</published>
-    <updated>2017-04-10T13:22:47.000Z</updated>
+    <updated>2017-04-10T13:22:18.000Z</updated>
     
     <content type="html">&lt;p&gt;最近需要下载国外网盘资源，无奈部分国外网盘被和谐，即使没被和谐的网盘下载速度和稳定性都不甚理想。曾经听说利用VPS可以下载国外网盘资源，正好自己手上也有闲置的VPS，我决定亲自实践一下利用VPS下载国外网盘资源，并且最后将此资源上传到百度云，在国内可以正常下载。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;首先声明：自己是代码小白，以下内容均是自己尝试出来的，如有错误请指正。&lt;/strong&gt;&lt;/p&gt;
@@ -416,11 +421,11 @@
       <category term="Programming" scheme="http://junn.im/categories/Programming/"/>
     
     
+      <category term="百度云" scheme="http://junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
+    
       <category term="vps" scheme="http://junn.im/tags/vps/"/>
     
       <category term="网盘" scheme="http://junn.im/tags/%E7%BD%91%E7%9B%98/"/>
-    
-      <category term="百度云" scheme="http://junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
     
   </entry>
   
@@ -429,7 +434,7 @@
     <link href="http://junn.im/2016/ingress/"/>
     <id>http://junn.im/2016/ingress/</id>
     <published>2016-04-20T16:00:00.000Z</published>
-    <updated>2018-04-05T15:20:24.695Z</updated>
+    <updated>2018-04-05T15:20:24.000Z</updated>
     
     <content type="html">&lt;p&gt;今天小雨，上班路上我打开了ingress，8:08am，我hack了一尊铜像portal，于是我获得了「Sojourner」的黑色徽章。「Sojourner」黑色徽章应该算是ingress中难度最大的几个成就之一，能坚持360天不中断签到连我自己也没想到。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -480,12 +485,21 @@
     <title>Hello World</title>
     <link href="http://junn.im/2016/hello-world/"/>
     <id>http://junn.im/2016/hello-world/</id>
-    <published>2016-04-10T04:00:48.000Z</published>
-    <updated>2017-04-10T13:22:30.000Z</updated>
+    <published>2016-04-09T16:00:00.000Z</published>
+    <updated>2019-04-10T14:49:42.279Z</updated>
     
     <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Install-Hexo&quot;&gt;&lt;a href=&quot;#Install-Hexo&quot; class=&quot;headerlink&quot; title=&quot;Install Hexo&quot;&gt;&lt;/a&gt;Install Hexo&lt;/h3&gt;&lt;p&gt;if you have zero experience of Terminal.app or have never opened Terminal.app, follow this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;open Terminal.app&lt;/li&gt;
+&lt;li&gt;install Homebrew:&lt;br&gt;&lt;code&gt;/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;install git: &lt;code&gt;brew install git&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;install Node.js: &lt;code&gt;brew install node&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;install Hexo: &lt;code&gt;npm install -g hexo-cli&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;国内用户可能遇到Homebrew下载缓慢的情况，Homebrew支持全局socks代理，可在安装Homebrew前在bash中输入&lt;code&gt;export ALL_PROXY=socks5://127.0.0.1:portnumber&lt;/code&gt;（将portnumber替换成你的socks代理端口），可显著&lt;a href=&quot;https://www.zhihu.com/question/31360766/answer/149140490&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;提高&lt;/a&gt;安装速度。&lt;/p&gt;
+&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;Create-a-new-About-page&quot;&gt;&lt;a href=&quot;#Create-a-new-About-page&quot; class=&quot;headerlink&quot; title=&quot;Create a new About page&quot;&gt;&lt;/a&gt;Create a new About page&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new page &lt;span class=&quot;string&quot;&gt;&quot;about&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;More info: &lt;a href=&quot;http://stackoverflow.com/a/37501624/5735597&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stackoverflow&lt;/a&gt;&lt;/p&gt;
