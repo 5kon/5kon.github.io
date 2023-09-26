@@ -1,5 +1,5 @@
 http://junn.im/install-teslamate-in-raspberrypi
-http://junn.im/about/index.html
+http://junn.im/about/
 http://junn.im/update-python-for-mac
 http://junn.im/hello-world
 http://junn.im/ingress
@@ -9,8 +9,8 @@ http://junn.im/using-vps-to-download-and-upload
 http://junn.im/download-from-baiduyun-using-aria2
 http://junn.im/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3
 http://junn.im/setting-up-sublime-text-3-for-python3-development
-http://junn.im/tags/index.html
-http://junn.im/categories/index.html
+http://junn.im/tags/
+http://junn.im/categories/
 http://junn.im/
 http://junn.im/tags/blog/
 http://junn.im/tags/hexo/
