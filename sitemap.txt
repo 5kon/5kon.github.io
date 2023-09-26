@@ -1,4 +1,3 @@
-http://junn.im/2017/07/sad-day-for-iOS-users-in-china/
 http://junn.im/2016/04/ingress/
 http://junn.im/2016/10/using-vps-to-download-and-upload/
 http://junn.im/2016/10/download-from-baiduyun-using-aria2/
@@ -25,10 +24,6 @@ http://junn.im/tags/plowshare/
 http://junn.im/tags/Python/
 http://junn.im/tags/Sublime-Text-3/
 http://junn.im/tags/SublimeREPL/
-http://junn.im/tags/iOS/
-http://junn.im/tags/Surge/
-http://junn.im/tags/Shadowrocket/
-http://junn.im/tags/Potatso/
 http://junn.im/tags/tesla/
 http://junn.im/tags/teslamate/
 http://junn.im/tags/raspberrypi/

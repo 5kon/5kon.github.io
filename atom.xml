@@ -65,33 +65,6 @@
   </entry>
   
   <entry>
-    <title>Sad Day for iOS Users in China</title>
-    <link href="http://junn.im/2017/07/sad-day-for-iOS-users-in-china/"/>
-    <id>http://junn.im/2017/07/sad-day-for-iOS-users-in-china/</id>
-    <published>2017-07-28T16:00:00.000Z</published>
-    <updated>2023-09-26T16:08:53.510Z</updated>
-    
-    <content type="html"><![CDATA[<p>Today is a sad day for iOS users in China who have set their iTunes store mainly in China. Because all the iOS apps including Surge, Shadowrocket and Potatso which can go through the great firewall have been pulled out of the iTunes store of China.</p><span id="more"></span><p>@Blankwonder, the creator of Surge: </p><blockquote><p>Surge has been pulled out of iTunes store of China. We are considering solutions, please wait for the further information.</p></blockquote><div align="center" ><blockquote class="twitter-tweet" data-lang="zh-cn"><p lang="zh" dir="ltr">Surge 在中国区被 Apple 主动下架。相关应对方案正在考虑中，请等待进一步消息。</p>&mdash; Yachen Liu (@Blankwonder) <a href="https://twitter.com/Blankwonder/status/891146765331595265">2017年7月29日</a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div><p>@icodesign_me, the creator of Potatso: </p><blockquote><p>Good Bye.</p></blockquote><div align="center" ><blockquote class="twitter-tweet" data-lang="zh-cn"><p lang="zh" dir="ltr">再见！ <a href="https://t.co/IRwxpeSFRH">pic.twitter.com/IRwxpeSFRH</a></p>&mdash; icodesign (@icodesign_me) <a href="https://twitter.com/icodesign_me/status/891147914759749632">2017年7月29日</a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div><p>30 years ago, the first email of China was sent from Beijing to Germany:</p><blockquote><p>Across the Great Wall we can reach every corner in the world.</p></blockquote><p>But 30 years later, we’ve been trapped within the Great Wall and forbidden to connect with the world.</p><p>Today is a sad day.</p><p>News related: <a href="http://www.reuters.com/article/us-china-apple-vpn-idUSKBN1AE0BQ">Apple is removing VPN services from China App Store: providers</a></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Today is a sad day for iOS users in China who have set their iTunes store mainly in China. Because all the iOS apps including Surge, Shadowrocket and Potatso which can go through the great firewall have been pulled out of the iTunes store of China.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Life" scheme="http://junn.im/categories/Life/"/>
-    
-    
-    <category term="iOS" scheme="http://junn.im/tags/iOS/"/>
-    
-    <category term="Surge" scheme="http://junn.im/tags/Surge/"/>
-    
-    <category term="Shadowrocket" scheme="http://junn.im/tags/Shadowrocket/"/>
-    
-    <category term="Potatso" scheme="http://junn.im/tags/Potatso/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Sublime Text 3配置Python交互环境</title>
     <link href="http://junn.im/2017/03/setting-up-sublime-text-3-for-python3-development/"/>
     <id>http://junn.im/2017/03/setting-up-sublime-text-3-for-python3-development/</id>
