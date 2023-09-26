@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"junn.im","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="最近需要下载国外网盘资源，无奈部分国外网盘被和谐，即使没被和谐的网盘下载速度和稳定性都不甚理想。曾经听说利用VPS可以下载国外网盘资源，正好自己手上也有闲置的VPS，我决定亲自实践一下利用VPS下载国外网盘资源，并且最后将此资源上传到百度云，在国内可以正常下载。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用VPS下载国外网盘资源并上传至百度云">
+<meta property="og:url" content="http://junn.im/using-vps-to-download-and-upload">
+<meta property="og:site_name" content="Jun&#39;s Blog">
+<meta property="og:description" content="最近需要下载国外网盘资源，无奈部分国外网盘被和谐，即使没被和谐的网盘下载速度和稳定性都不甚理想。曾经听说利用VPS可以下载国外网盘资源，正好自己手上也有闲置的VPS，我决定亲自实践一下利用VPS下载国外网盘资源，并且最后将此资源上传到百度云，在国内可以正常下载。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2016-10-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2017-04-10T13:22:18.000Z">
+<meta property="article:author" content="Jun">
+<meta property="article:tag" content="vps">
+<meta property="article:tag" content="网盘">
+<meta property="article:tag" content="百度云">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://junn.im/using-vps-to-download-and-upload">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://junn.im/using-vps-to-download-and-upload","path":"/using-vps-to-download-and-upload","title":"利用VPS下载国外网盘资源并上传至百度云"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>利用VPS下载国外网盘资源并上传至百度云 | Jun's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Jun's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jun's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E9%85%8D%E7%BD%AEVPS%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">第一步 配置VPS操作系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%9C%A8VPS%E4%B8%AD%E5%AE%89%E8%A3%85Plowshare"><span class="nav-number">2.</span> <span class="nav-text">第二步 在VPS中安装Plowshare</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E6%B3%A8%E5%86%8C9kw-eu%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.</span> <span class="nav-text">第三步 注册9kw.eu服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%AE%89%E8%A3%85bypy"><span class="nav-number">4.</span> <span class="nav-text">第四步 安装bypy</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jun</p>
+  <div class="site-description" itemprop="description">自留地</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://junn.im/using-vps-to-download-and-upload">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jun's Blog">
+      <meta itemprop="description" content="自留地">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="利用VPS下载国外网盘资源并上传至百度云 | Jun's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          利用VPS下载国外网盘资源并上传至百度云
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-10-20 00:00:00" itemprop="dateCreated datePublished" datetime="2016-10-20T00:00:00+08:00">2016-10-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2017-04-10 21:22:18" itemprop="dateModified" datetime="2017-04-10T21:22:18+08:00">2017-04-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/using-vps-to-download-and-upload#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/using-vps-to-download-and-upload" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>最近需要下载国外网盘资源，无奈部分国外网盘被和谐，即使没被和谐的网盘下载速度和稳定性都不甚理想。曾经听说利用VPS可以下载国外网盘资源，正好自己手上也有闲置的VPS，我决定亲自实践一下利用VPS下载国外网盘资源，并且最后将此资源上传到百度云，在国内可以正常下载。</p>
+<span id="more"></span>
+
+<p><strong>首先声明：自己是代码小白，以下内容均是自己尝试出来的，如有错误请指正。</strong></p>
+<p>需要工具：</p>
+<ol>
+<li>一个VPS服务。内存至少256M，最好512M以上；硬盘容量因人而异；流量一般都用不完。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mcrapet/plowshare">Plowshare</a>，开源软件，下载国外网盘资源工具。</li>
+<li><a target="_blank" rel="noopener" href="https://www.9kw.eu/index.html">9kw.eu</a>，一个用来识别国外网盘Captcha的<strong>付费</strong>服务。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/houtianze/bypy">bypy</a>，国人开发的百度云的python客户端，可以实现上传同步等功能。</li>
+<li>Mac系统: 终端(Terminal.app); Windows系统: PuTTY</li>
+</ol>
+<h2 id="第一步-配置VPS操作系统"><a href="#第一步-配置VPS操作系统" class="headerlink" title="第一步 配置VPS操作系统"></a>第一步 配置VPS操作系统</h2><p>我一开始用的是Vultr最基础的套餐，每月5刀的那种。选择<code>Vultr Cloud Compute(VC2)</code>，<code>Server Location</code>可以选<code>Tokyo</code>，理论上离的越近，延迟越少。<code>Server Type</code>选择<code>64 bit OS</code>，点击<code>CentOS 7 x64</code>，<code>Server Size</code>选择<code>$5/mo</code>(土豪请随意)，后面的<code>Additional Features</code>之类的按照默认，最后点击<code>Deploy Now</code>。操作系统最好选择CentOS 7，因为这个版本的系统默认的Python版本是2.7.5，而后面要用到的bypy依赖2.7+的Python才能运行。查看系统Python版本可用如下代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -V</span><br></pre></td></tr></table></figure>
+<p>几分钟之后，VPS部署完毕，记下VPS的IP地址和密码。</p>
+<h2 id="第二步-在VPS中安装Plowshare"><a href="#第二步-在VPS中安装Plowshare" class="headerlink" title="第二步 在VPS中安装Plowshare"></a>第二步 在VPS中安装Plowshare</h2><p>1.SSH</p>
+<p>在安装Plowshare之前，得先通过SSH登录进VPS。Mac使用自带的终端就可以了，Windows可以使用PuTTY。以Mac为例，在终端中输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@你的VPS的IP地址</span><br></pre></td></tr></table></figure>
+<p>然后会提示你输入密码，复制粘贴即可。粘贴完密码后，终端不会显示密码，只需摁下回车键即可登录进VPS。</p>
+<p>2.安装<a target="_blank" rel="noopener" href="https://github.com/mcrapet/plowshare">Plowshare</a></p>
+<p>按照<a target="_blank" rel="noopener" href="https://github.com/mcrapet/plowshare/blob/master/INSTALL">此页面</a>安装。CentOS系统在终端中使用如下代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install plowshare</span><br></pre></td></tr></table></figure>
+<p>在Vultr的CentOS中，我使用上面的代码安装Plowshare成功，但在AlphaRacks的VPS中，我使用同样代码却出现问题，出现如下文字：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">没有可用软件包 plowshare。</span><br><span class="line">错误：无须任何处理</span><br></pre></td></tr></table></figure>
+<p>我在网上寻寻觅觅，在这个<a target="_blank" rel="noopener" href="https://pkgs.org/centos-7/epel-x86_64/plowshare-1.0.6-1.el7.noarch.rpm.html">网页</a>寻找到答案：</p>
+<blockquote>
+<p>Download plowshare-1.0.6-1.el7.noarch.rpm for CentOS 7 from the EPEL repository.</p>
+</blockquote>
+<p>看到上面这句话我想，可能是因为AlphaRacks的CentOS缺少了<code>EPEL repository</code>，导致plowshare无法下载。于是需要先在VPS中安装<code>EPEL repository</code>，在网上寻觅到如下代码安装EPEL：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br></pre></td></tr></table></figure>
+<p>安装EPEL后，Plowshare安装成功。</p>
+<p>3.安装Plowshare的外部模块</p>
+<p>在Plowshare的Introduction中有这么一句话：</p>
+<blockquote>
+<p>Plowshare itself doesn’t support any websites (named module). It’s just the core engine. Concerning modules, few are available separately and must be installed in user directory</p>
+</blockquote>
+<p>Plowshare只是一个引擎(core engine)，真正起作用能下载这些国外网盘的是外部的模块(module)。所以安装完Plowshare后还要安装外部模块，按照<a target="_blank" rel="noopener" href="https://github.com/mcrapet/plowshare/blob/master/INSTALL">这个页面</a>最后的代码<code>Installation (external modules)</code>，我试了<code>Automatic method: using plowmod</code>，没用。于是使用了<code>Manual method: from sources</code>，成功安装。在终端中逐行输入以下代码，每输完一行敲一下回车键。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.config/plowshare/modules.d</span><br><span class="line"><span class="built_in">cd</span> ~/.config/plowshare/modules.d</span><br><span class="line">curl -L -k https://github.com/mcrapet/plowshare-modules-legacy/archive/master.tar.gz | tar zxf -</span><br><span class="line"><span class="built_in">mv</span> plowshare-modules-legacy-master legacy</span><br><span class="line"><span class="comment"># vim:fileencoding=utf-8</span></span><br><span class="line"><span class="built_in">cd</span></span><br></pre></td></tr></table></figure>
+<p>到此，Plowshare安装全部完成。可以在终端输入<code>plowdown -h</code>显示帮助文档，输入<code>plowdown --modules</code>显示目前模块支持的网盘，发现居然还有115网盘(然后并有什么x用，如果支持yunfile就好了)。在帮助文档中还有一行代码比较重要：</p>
+<blockquote>
+<p>–9kweu&#x3D;KEY           9kw.eu captcha (API) key</p>
+</blockquote>
+<p>9kw.eu，是一个用来识别captcha的服务。下载过国外网盘资源的人都知道，这些网盘都需要看图识字(captcha)输入验证码才能下载资源，而9kw.eu正是一个自动识别captcha的服务，对于资源下载至关重要。Plowshare好像还有其他captcha识别服务，我没试过。</p>
+<h2 id="第三步-注册9kw-eu服务"><a href="#第三步-注册9kw-eu服务" class="headerlink" title="第三步 注册9kw.eu服务"></a>第三步 注册9kw.eu服务</h2><p>注册过程不叙述了，不过<a href="9kw.eu">9kw.eu</a>这服务不是免费的，需要付费：4000次captcha服务(submit)，收费5欧。对于没有比特币的我来说只能使用坑爹的Paypal，5欧收了我38块多，Paypal这汇率…不过还算便宜，40元RMB支持识别4000次，1分钱识别1次，可以接受。注册付费完之后，在后台可以获取Plowshare的专属API，就是<code>--9kweu=KEY</code>中的KEY。</p>
+<p>接下去就是下载资源了，使用如下格式，注意空格：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plowdown --9kweu=你的Plowshare专属API 你的资源网址链接</span><br></pre></td></tr></table></figure>
+<p>静等下载吧。</p>
+<h2 id="第四步-安装bypy"><a href="#第四步-安装bypy" class="headerlink" title="第四步 安装bypy"></a>第四步 安装bypy</h2><p><a target="_blank" rel="noopener" href="https://github.com/houtianze/bypy">bypy</a>是一个百度云网盘的Python客户端，可在Linux环境下通过命令行来操作。在本文的操作环境下，安装byby需要更多的步骤，byby官网没有介绍那么详细，所以我参考了其他网友的教程。</p>
+<p>1.安装 Git (此步骤可省略)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
+
+<p>2.安装Python Pip</p>
+<p>如果在前面已安装过EPEL，则这边输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install python-pip</span><br><span class="line">yum clean all</span><br></pre></td></tr></table></figure>
+
+<p>如果没有安装过EPEL，则输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">yum -y install python-pip</span><br><span class="line">yum clean all</span><br></pre></td></tr></table></figure>
+
+<p>3.安装Python Requests库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+
+<p>4.安装bypy</p>
+<p>完成以上步骤后，才开始正式安装bypy。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install bypy</span><br></pre></td></tr></table></figure>
+
+<p>第一次运行时需要百度网盘授权，只需跑任何一个命令（比如 <code>bypy.py info</code>）然后跟着说明（登陆等）来授权即可。授权只需一次，一旦成功，以后不会再出现授权提示。运行<code>bypy.py info</code>是这样的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bypy.py info</span><br><span class="line">Please visit: https://openapi.baidu.com/xxxxxx</span><br><span class="line">And authorize this app</span><br><span class="line">Paste the Authorization Code here within 10 minutes.</span><br><span class="line">Press [Enter] when you are <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>在浏览器中打开 <code>https://openapi.baidu.com/xxxxxx</code> 这个网址，百度会反馈一段<code>Authorization Code</code>，复制粘贴到终端，摁回车键即可。到此bypy也装好了，等资源下载完，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bypy.py upload</span><br></pre></td></tr></table></figure>
+<p>就能将资源搬回百度网盘了。</p>
+<p>接下去再谈谈我使用的VPS下载上传速度。</p>
+<p>我只使用了Vultr家的最基础的<code>$5/mo</code>套餐和AlphaRacks家的<code>Hot Summer Special - Linux 768MB</code>套餐，两家配置如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Vultr</th>
+<th align="center">AlphaRacks</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CPU</td>
+<td align="center">1核</td>
+<td align="center">1核</td>
+</tr>
+<tr>
+<td align="center">内存</td>
+<td align="center">768MB</td>
+<td align="center">768MB</td>
+</tr>
+<tr>
+<td align="center">硬盘</td>
+<td align="center">15GB</td>
+<td align="center">15GB</td>
+</tr>
+<tr>
+<td align="center">流量</td>
+<td align="center">1TB</td>
+<td align="center">1TB</td>
+</tr>
+<tr>
+<td align="center">位置</td>
+<td align="center">新加坡</td>
+<td align="center">洛杉矶</td>
+</tr>
+<tr>
+<td align="center">价格</td>
+<td align="center">5刀&#x2F;月</td>
+<td align="center">11刀&#x2F;年</td>
+</tr>
+</tbody></table>
+<p>分别在<code>rapidgator.net</code>,<code>uploaded.net</code>,<code>keep2share.cc</code>三个国外网盘进行过下载并上传到百度云。下载上传速率如下表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">kb&#x2F;s</th>
+<th align="center">rapidgator.net</th>
+<th align="center">uploaded.net</th>
+<th align="center">keep2share.cc</th>
+<th align="center">百度云上传速度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Vultr</td>
+<td align="center">60-80</td>
+<td align="center">40-60</td>
+<td align="center">没下载</td>
+<td align="center">80-100, 800kb&#x2F;s(Max)</td>
+</tr>
+<tr>
+<td align="center">AlphaRacks</td>
+<td align="center">70-100</td>
+<td align="center">40-80</td>
+<td align="center">50-60</td>
+<td align="center">200-300, 1M&#x2F;s(Max)</td>
+</tr>
+</tbody></table>
+<p>可以看出虽然Vultr名声很大，但差不多配置下，AlphaRacks家的VPS上传下载速度更快，而且更便宜。所以我更推荐AlphaRacks。点击进入<a target="_blank" rel="noopener" href="https://www.alpharacks.com/myrack/aff.php?aff=830">AlphaRacks</a>，或者进入<a target="_blank" rel="noopener" href="https://www.alpharacks.com/myrack/aff.php?aff=830&pid=201">AlphaRacks<code>Hot Summer Special - Linux 768MB</code>套餐</a>。</p>
+<p>以上就是利用VPS来下载国外网盘资源并上传到百度云的全过程。虽然这个过程比较复杂，还要付费购买一些服务(也不算贵)，但是和在墙内寻找这些被墙的资源所浪费的时间和等待极不稳定时常断线的国外网盘慢速下载所浪费的时间相比，这点花费真不算什么，况且某些服务还有其他妙用。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vps/" rel="tag"># vps</a>
+              <a href="/tags/%E7%BD%91%E7%9B%98/" rel="tag"># 网盘</a>
+              <a href="/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/" rel="tag"># 百度云</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/ingress" rel="prev" title="我与ingress">
+                  <i class="fa fa-angle-left"></i> 我与ingress
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/download-from-baiduyun-using-aria2" rel="next" title="Mac使用aria2下载百度云资源">
+                  Mac使用aria2下载百度云资源 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2013 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jun</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"junn","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
