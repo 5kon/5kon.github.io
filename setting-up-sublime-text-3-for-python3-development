@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Sublime Text 3配置Python交互环境 | Jun&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="今天学Python时遇到如下代码：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime Text 3配置Python交互环境">
+<meta property="og:url" content="http://junn.im/setting-up-sublime-text-3-for-python3-development">
+<meta property="og:site_name" content="Jun&#39;s Blog">
+<meta property="og:description" content="今天学Python时遇到如下代码：">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-03-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2017-04-10T13:21:52.000Z">
+<meta property="article:author" content="Jun">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Sublime Text 3">
+<meta property="article:tag" content="SublimeREPL">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Jun's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jun&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://junn.im"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-170327_sublimeREPL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/setting-up-sublime-text-3-for-python3-development" class="article-date">
+  <time class="dt-published" datetime="2017-03-26T16:00:00.000Z" itemprop="datePublished">2017-03-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Sublime Text 3配置Python交互环境
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>今天学Python时遇到如下代码：</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/python3 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 该实例演示了数字猜谜游戏</span></span><br><span class="line">number = 7</span><br><span class="line">guess = -1</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数字猜谜游戏!&quot;</span>)</span><br><span class="line"><span class="keyword">while</span> guess != number:</span><br><span class="line">    guess = int(input(<span class="string">&quot;请输入你猜的数字：&quot;</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> guess == number:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;恭喜，你猜对了！&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> guess &lt; number:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;猜的数字小了...&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> guess &gt; number:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;猜的数字大了...&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>⌘+b执行该段代码后我发现输入数字后，控制台无法进行下一步，无法建立互动，于是Google如何在ST3中建立Python交互环境。</p>
+<p>在用ST3学习Python前，我就安装了以下三个据说是学Python必装的Package：</p>
+<ul>
+<li>SublimeCodeIntel</li>
+<li>SublimeLinter</li>
+<li>SublimeREPL</li>
+</ul>
+<p>其中SublimeREPL就可以搭建起Python交互环境。</p>
+<h2 id="修改SublimeREPL"><a href="#修改SublimeREPL" class="headerlink" title="修改SublimeREPL"></a>修改SublimeREPL</h2><p>选择<code>Tools</code>-<code>SublimeREPL</code>-<code>Python</code>-<code>Python-RUN current file</code>，就可以建立起上述代码的交互环境。当我点击了<code>Python-RUN current file</code>ST3又报错，一看还是编码问题，看来还得像上一篇文章一样调整一下SublimeREPL的Python编码。在<code>/Users/你的用户名/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/config/Python</code>或者<code>Preferences-Browse Packages...-SublimeREPL-config-Python</code>路径中找到<code>Main.sublime-menu</code>这个文件打开，定位到<code>caption&quot;: &quot;Python - RUN current file&quot;</code>那块，原始代码为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,</span><br><span class="line"><span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - RUN current file&quot;</span>,</span><br><span class="line"><span class="string">&quot;id&quot;</span>: <span class="string">&quot;repl_python_run&quot;</span>,</span><br><span class="line"><span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;R&quot;</span>,</span><br><span class="line"><span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">	<span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">	<span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;<span class="variable">$file_basename</span>&quot;</span>],</span><br><span class="line">	<span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">	<span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">	<span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">	<span class="string">&quot;extend_env&quot;</span>: &#123;<span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>我改成下面这样：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,</span><br><span class="line"><span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - RUN current file&quot;</span>,</span><br><span class="line"><span class="string">&quot;id&quot;</span>: <span class="string">&quot;repl_python_run&quot;</span>,</span><br><span class="line"><span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;R&quot;</span>,</span><br><span class="line"><span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">	<span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">	<span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;-i&quot;</span>, <span class="string">&quot;<span class="variable">$file_basename</span>&quot;</span>],</span><br><span class="line">	<span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">	<span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">	<span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">	<span class="string">&quot;extend_env&quot;</span>: &#123;<span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>这样就解决了<code>RUN current file</code>时的编码问题。但这样还有一个问题，每次需要交互，必须要点击菜单栏Tools然后一层层点进去才能跑代码，还需要设置一个快捷键。</p>
+<h2 id="设置快捷键"><a href="#设置快捷键" class="headerlink" title="设置快捷键"></a>设置快捷键</h2><p>在<code>Preferences-Key Bindings</code>进行快捷键设置。在显示的文件名为<code>Default (OSX).sublime-keymap - User</code>文档的两个方括号间粘贴如下代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="string">&quot;keys&quot;</span>: [<span class="string">&quot;ctrl+r&quot;</span>], </span><br><span class="line">	<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,                  </span><br><span class="line">	<span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - RUN current file&quot;</span>,                 </span><br><span class="line">	<span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;R&quot;</span>,                 </span><br><span class="line">	<span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">		<span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">		<span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">		<span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;-i&quot;</span>, <span class="string">&quot;<span class="variable">$file_basename</span>&quot;</span>],</span><br><span class="line">		<span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">		<span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">		<span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">		<span class="string">&quot;extend_env&quot;</span>: &#123;<span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;</span><br><span class="line">		&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我设置了<code>ctrl+r</code>为<code>RUN current file</code>的快捷键。</p>
+<p>到这里，Python在ST3的交互问题就全部搞定了，并且有了一个快捷键可以快速方便的执行交互类型的代码了。</p>
+<p>参考：<a target="_blank" rel="noopener" href="http://www.jasred.com/2014/05/12/setting-up-sublime-text-3-for-python3-development/">Setting Up Sublime Text 3 for Python3 Development</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://junn.im/setting-up-sublime-text-3-for-python3-development" data-id="cln0elxzu000dnkygfpo61fyg" data-title="Sublime Text 3配置Python交互环境" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime-Text-3/" rel="tag">Sublime Text 3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SublimeREPL/" rel="tag">SublimeREPL</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/sad-day-for-iOS-users-in-china" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Sad Day for iOS Users in China
+        
+      </div>
+    </a>
+  
+  
+    <a href="/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Sublime Text 3运行Python时控制台无法输出中文的解决方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Potatso/" rel="tag">Potatso</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shadowrocket/" rel="tag">Shadowrocket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime-Text-3/" rel="tag">Sublime Text 3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SublimeREPL/" rel="tag">SublimeREPL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Surge/" rel="tag">Surge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aria2/" rel="tag">aria2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ingress/" rel="tag">ingress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plowshare/" rel="tag">plowshare</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspberrypi/" rel="tag">raspberrypi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tesla/" rel="tag">tesla</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/teslamate/" rel="tag">teslamate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vps/" rel="tag">vps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/" rel="tag">百度云</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%9B%98/" rel="tag">网盘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Potatso/" style="font-size: 10px;">Potatso</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Shadowrocket/" style="font-size: 10px;">Shadowrocket</a> <a href="/tags/Sublime-Text-3/" style="font-size: 15px;">Sublime Text 3</a> <a href="/tags/SublimeREPL/" style="font-size: 10px;">SublimeREPL</a> <a href="/tags/Surge/" style="font-size: 10px;">Surge</a> <a href="/tags/aria2/" style="font-size: 10px;">aria2</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ingress/" style="font-size: 10px;">ingress</a> <a href="/tags/plowshare/" style="font-size: 10px;">plowshare</a> <a href="/tags/raspberrypi/" style="font-size: 10px;">raspberrypi</a> <a href="/tags/tesla/" style="font-size: 10px;">tesla</a> <a href="/tags/teslamate/" style="font-size: 10px;">teslamate</a> <a href="/tags/vps/" style="font-size: 10px;">vps</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/" style="font-size: 15px;">百度云</a> <a href="/tags/%E7%BD%91%E7%9B%98/" style="font-size: 10px;">网盘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/install-teslamate-in-raspberrypi">在Raspberry Pi上部署TeslaMate</a>
+          </li>
+        
+          <li>
+            <a href="/update-python-for-mac">升级Mac自带Python版本</a>
+          </li>
+        
+          <li>
+            <a href="/sad-day-for-iOS-users-in-china">Sad Day for iOS Users in China</a>
+          </li>
+        
+          <li>
+            <a href="/setting-up-sublime-text-3-for-python3-development">Sublime Text 3配置Python交互环境</a>
+          </li>
+        
+          <li>
+            <a href="/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublime-text-3">Sublime Text 3运行Python时控制台无法输出中文的解决方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Jun<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
