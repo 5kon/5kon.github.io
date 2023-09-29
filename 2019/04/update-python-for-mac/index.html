@@ -234,14 +234,19 @@
 <p><strong>第三步：修改Mac自带的python路径</strong></p>
 <p>安装后在终端中输入：<code>python -V</code>，发现默认仍然使用2.7版。在网上查询了下，很多人通过修改根目录下的<code>.bash_profile</code>文件来改变Mac默认的Python路径。我找了半天发现没有这个文件，有两个解决办法：一个是自己新建一个 <code>.bash_profile</code>文件并输入相应代码，另一个是进入<code>/Applications/Python 3.7</code>路径，双击<code>Update Shell Profile.command</code>文件就能在根目录下生成<code>.bash_profile</code>文件。</p>
 <p>打开<code>.bash_profile</code>文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~/.bash_profile</span><br></pre></td></tr></table></figure>
-
+<pre><code>open ~/.bash_profile
+</code></pre>
 <p>在其中最后一行加入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias python=&quot;/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code>alias python=&quot;/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7&quot;
+</code></pre>
 <p><code>.bash_profile</code>文件最终代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Setting PATH for Python 3.7</span><br><span class="line"># The original version is saved in .bash_profile.pysave</span><br><span class="line">PATH=&quot;/Library/Frameworks/Python.framework/Versions/3.7/bin:$&#123;PATH&#125;&quot;</span><br><span class="line">export PATH</span><br><span class="line">alias python=&quot;/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code>
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH=&quot;/Library/Frameworks/Python.framework/Versions/3.7/bin:$&#123;PATH&#125;&quot;
+export PATH
+alias python=&quot;/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7&quot;
+</code></pre>
 <p>重启一下终端，再用<code>python -V</code>验证一下就可以了。</p>
 <p>嗯，时隔一年多，居然更新了，居然还是博客3周年。争取今年把2018年落下的补上，我这是有多懒😄️。</p>
 

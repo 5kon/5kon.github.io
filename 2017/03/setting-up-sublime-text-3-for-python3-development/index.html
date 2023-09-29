@@ -226,7 +226,22 @@
     <div class="post-body" itemprop="articleBody"><p>今天学Python时遇到如下代码：</p>
 <span id="more"></span>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/python3 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 该实例演示了数字猜谜游戏</span></span><br><span class="line">number = 7</span><br><span class="line">guess = -1</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数字猜谜游戏!&quot;</span>)</span><br><span class="line"><span class="keyword">while</span> guess != number:</span><br><span class="line">    guess = int(input(<span class="string">&quot;请输入你猜的数字：&quot;</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> guess == number:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;恭喜，你猜对了！&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> guess &lt; number:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;猜的数字小了...&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> guess &gt; number:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;猜的数字大了...&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">#!/usr/bin/python3 
+
+# 该实例演示了数字猜谜游戏
+number = 7
+guess = -1
+print(&quot;数字猜谜游戏!&quot;)
+while guess != number:
+    guess = int(input(&quot;请输入你猜的数字：&quot;))
+
+    if guess == number:
+        print(&quot;恭喜，你猜对了！&quot;)
+    elif guess &lt; number:
+        print(&quot;猜的数字小了...&quot;)
+    elif guess &gt; number:
+        print(&quot;猜的数字大了...&quot;)
+</code></pre>
 <p>⌘+b执行该段代码后我发现输入数字后，控制台无法进行下一步，无法建立互动，于是Google如何在ST3中建立Python交互环境。</p>
 <p>在用ST3学习Python前，我就安装了以下三个据说是学Python必装的Package：</p>
 <ul>
@@ -236,14 +251,54 @@
 </ul>
 <p>其中SublimeREPL就可以搭建起Python交互环境。</p>
 <h2 id="修改SublimeREPL"><a href="#修改SublimeREPL" class="headerlink" title="修改SublimeREPL"></a>修改SublimeREPL</h2><p>选择<code>Tools</code>-<code>SublimeREPL</code>-<code>Python</code>-<code>Python-RUN current file</code>，就可以建立起上述代码的交互环境。当我点击了<code>Python-RUN current file</code>ST3又报错，一看还是编码问题，看来还得像上一篇文章一样调整一下SublimeREPL的Python编码。在<code>/Users/你的用户名/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/config/Python</code>或者<code>Preferences-Browse Packages...-SublimeREPL-config-Python</code>路径中找到<code>Main.sublime-menu</code>这个文件打开，定位到<code>caption&quot;: &quot;Python - RUN current file&quot;</code>那块，原始代码为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,</span><br><span class="line"><span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - RUN current file&quot;</span>,</span><br><span class="line"><span class="string">&quot;id&quot;</span>: <span class="string">&quot;repl_python_run&quot;</span>,</span><br><span class="line"><span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;R&quot;</span>,</span><br><span class="line"><span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">	<span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">	<span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;<span class="variable">$file_basename</span>&quot;</span>],</span><br><span class="line">	<span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">	<span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">	<span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">	<span class="string">&quot;extend_env&quot;</span>: &#123;<span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">&#123;&quot;command&quot;: &quot;repl_open&quot;,
+&quot;caption&quot;: &quot;Python - RUN current file&quot;,
+&quot;id&quot;: &quot;repl_python_run&quot;,
+&quot;mnemonic&quot;: &quot;R&quot;,
+&quot;args&quot;: &#123;
+    &quot;type&quot;: &quot;subprocess&quot;,
+    &quot;encoding&quot;: &quot;utf8&quot;,
+    &quot;cmd&quot;: [&quot;python&quot;, &quot;-u&quot;, &quot;$file_basename&quot;],
+    &quot;cwd&quot;: &quot;$file_path&quot;,
+    &quot;syntax&quot;: &quot;Packages/Python/Python.tmLanguage&quot;,
+    &quot;external_id&quot;: &quot;python&quot;,
+    &quot;extend_env&quot;: &#123;&quot;PYTHONIOENCODING&quot;: &quot;utf-8&quot;&#125;
+    &#125;
+&#125;,
+</code></pre>
 <p>我改成下面这样：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,</span><br><span class="line"><span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - RUN current file&quot;</span>,</span><br><span class="line"><span class="string">&quot;id&quot;</span>: <span class="string">&quot;repl_python_run&quot;</span>,</span><br><span class="line"><span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;R&quot;</span>,</span><br><span class="line"><span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">	<span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">	<span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;-i&quot;</span>, <span class="string">&quot;<span class="variable">$file_basename</span>&quot;</span>],</span><br><span class="line">	<span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">	<span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">	<span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">	<span class="string">&quot;extend_env&quot;</span>: &#123;<span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">&#123;&quot;command&quot;: &quot;repl_open&quot;,
+&quot;caption&quot;: &quot;Python - RUN current file&quot;,
+&quot;id&quot;: &quot;repl_python_run&quot;,
+&quot;mnemonic&quot;: &quot;R&quot;,
+&quot;args&quot;: &#123;
+    &quot;type&quot;: &quot;subprocess&quot;,
+    &quot;encoding&quot;: &quot;utf8&quot;,
+    &quot;cmd&quot;: [&quot;python3&quot;, &quot;-u&quot;, &quot;-i&quot;, &quot;$file_basename&quot;],
+    &quot;cwd&quot;: &quot;$file_path&quot;,
+    &quot;syntax&quot;: &quot;Packages/Python/Python.tmLanguage&quot;,
+    &quot;external_id&quot;: &quot;python&quot;,
+    &quot;extend_env&quot;: &#123;&quot;PYTHONIOENCODING&quot;: &quot;utf-8&quot;&#125;
+    &#125;
+&#125;,
+</code></pre>
 <p>这样就解决了<code>RUN current file</code>时的编码问题。但这样还有一个问题，每次需要交互，必须要点击菜单栏Tools然后一层层点进去才能跑代码，还需要设置一个快捷键。</p>
 <h2 id="设置快捷键"><a href="#设置快捷键" class="headerlink" title="设置快捷键"></a>设置快捷键</h2><p>在<code>Preferences-Key Bindings</code>进行快捷键设置。在显示的文件名为<code>Default (OSX).sublime-keymap - User</code>文档的两个方括号间粘贴如下代码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="string">&quot;keys&quot;</span>: [<span class="string">&quot;ctrl+r&quot;</span>], </span><br><span class="line">	<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,                  </span><br><span class="line">	<span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - RUN current file&quot;</span>,                 </span><br><span class="line">	<span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;R&quot;</span>,                 </span><br><span class="line">	<span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">		<span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">		<span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">		<span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;-i&quot;</span>, <span class="string">&quot;<span class="variable">$file_basename</span>&quot;</span>],</span><br><span class="line">		<span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">		<span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">		<span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">		<span class="string">&quot;extend_env&quot;</span>: &#123;<span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;</span><br><span class="line">		&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">&#123; &quot;keys&quot;: [&quot;ctrl+r&quot;], 
+    &quot;command&quot;: &quot;repl_open&quot;,                  
+    &quot;caption&quot;: &quot;Python - RUN current file&quot;,                 
+    &quot;mnemonic&quot;: &quot;R&quot;,                 
+    &quot;args&quot;: &#123;
+        &quot;type&quot;: &quot;subprocess&quot;,
+        &quot;encoding&quot;: &quot;utf8&quot;,
+        &quot;cmd&quot;: [&quot;python3&quot;, &quot;-u&quot;, &quot;-i&quot;, &quot;$file_basename&quot;],
+        &quot;cwd&quot;: &quot;$file_path&quot;,
+        &quot;syntax&quot;: &quot;Packages/Python/Python.tmLanguage&quot;,
+        &quot;external_id&quot;: &quot;python&quot;,
+        &quot;extend_env&quot;: &#123;&quot;PYTHONIOENCODING&quot;: &quot;utf-8&quot;&#125;
+        &#125; 
+&#125;
+</code></pre>
 <p>我设置了<code>ctrl+r</code>为<code>RUN current file</code>的快捷键。</p>
 <p>到这里，Python在ST3的交互问题就全部搞定了，并且有了一个快捷键可以快速方便的执行交互类型的代码了。</p>
 <p>参考：<a target="_blank" rel="noopener" href="http://www.jasred.com/2014/05/12/setting-up-sublime-text-3-for-python3-development/">Setting Up Sublime Text 3 for Python3 Development</a></p>
