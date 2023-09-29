@@ -2,7 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://junn.im/about/</loc>
+    <loc>http://junn.im/2017/03/setting-up-sublime-text-3-for-python3-development/</loc>
+    
+    <lastmod>2023-09-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://junn.im/2017/03/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublimetext3/</loc>
+    
+    <lastmod>2023-09-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://junn.im/2016/12/plowshare/</loc>
     
     <lastmod>2023-09-29</lastmod>
     
@@ -12,6 +30,33 @@
   
   <url>
     <loc>http://junn.im/2023/09/install-teslamate-in-raspberrypi/</loc>
+    
+    <lastmod>2023-09-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://junn.im/2016/04/helloworld/</loc>
+    
+    <lastmod>2023-09-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://junn.im/2019/04/update-python-for-mac/</loc>
+    
+    <lastmod>2023-09-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://junn.im/about/</loc>
     
     <lastmod>2023-09-29</lastmod>
     
@@ -39,51 +84,6 @@
   
   <url>
     <loc>http://junn.im/2016/10/download-from-baiduyun-using-aria2/</loc>
-    
-    <lastmod>2023-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://junn.im/2017/03/setting-up-sublime-text-3-for-python3-development/</loc>
-    
-    <lastmod>2023-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://junn.im/2016/04/helloworld/</loc>
-    
-    <lastmod>2023-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://junn.im/2016/12/plowshare/</loc>
-    
-    <lastmod>2023-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://junn.im/2017/03/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublimetext3/</loc>
-    
-    <lastmod>2023-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://junn.im/2019/04/update-python-for-mac/</loc>
     
     <lastmod>2023-09-26</lastmod>
     

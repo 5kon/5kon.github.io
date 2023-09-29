@@ -27,7 +27,7 @@
 <meta property="og:description" content="最近捡起荒废已久的Python从头开始学，在安装pyinstaller时发现Mac自带的2.7版本将于2020年停止支持，于是决定升级一下。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2019-04-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-26T15:56:20.084Z">
+<meta property="article:modified_time" content="2023-09-29T15:58:19.512Z">
 <meta property="article:author" content="Jun">
 <meta property="article:tag" content="Mac">
 <meta property="article:tag" content="Python">
@@ -200,7 +200,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-26 23:56:20" itemprop="dateModified" datetime="2023-09-26T23:56:20+08:00">2023-09-26</time>
+      <time title="Modified: 2023-09-29 23:58:19" itemprop="dateModified" datetime="2023-09-29T23:58:19+08:00">2023-09-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -234,18 +234,17 @@
 <p><strong>第三步：修改Mac自带的python路径</strong></p>
 <p>安装后在终端中输入：<code>python -V</code>，发现默认仍然使用2.7版。在网上查询了下，很多人通过修改根目录下的<code>.bash_profile</code>文件来改变Mac默认的Python路径。我找了半天发现没有这个文件，有两个解决办法：一个是自己新建一个 <code>.bash_profile</code>文件并输入相应代码，另一个是进入<code>/Applications/Python 3.7</code>路径，双击<code>Update Shell Profile.command</code>文件就能在根目录下生成<code>.bash_profile</code>文件。</p>
 <p>打开<code>.bash_profile</code>文件：</p>
-<pre class="line-numbers language-none"><code class="language-none">open ~&#x2F;.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">open</span> ~/.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>在其中最后一行加入：</p>
-<pre class="line-numbers language-none"><code class="language-none">alias python&#x3D;&quot;&#x2F;Library&#x2F;Frameworks&#x2F;Python.framework&#x2F;Versions&#x2F;3.7&#x2F;bin&#x2F;python3.7&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">alias</span> <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token string">"/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><code>.bash_profile</code>文件最终代码如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">
-# Setting PATH for Python 3.7
-# The original version is saved in .bash_profile.pysave
-PATH&#x3D;&quot;&#x2F;Library&#x2F;Frameworks&#x2F;Python.framework&#x2F;Versions&#x2F;3.7&#x2F;bin:$&#123;PATH&#125;&quot;
-export PATH
-alias python&#x3D;&quot;&#x2F;Library&#x2F;Frameworks&#x2F;Python.framework&#x2F;Versions&#x2F;3.7&#x2F;bin&#x2F;python3.7&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Setting PATH for Python 3.7</span>
+<span class="token comment"># The original version is saved in .bash_profile.pysave</span>
+<span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token string">"/Library/Frameworks/Python.framework/Versions/3.7/bin:<span class="token variable">$&#123;<span class="token environment constant">PATH</span>&#125;</span>"</span>
+<span class="token builtin class-name">export</span> <span class="token environment constant">PATH</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token string">"/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>重启一下终端，再用<code>python -V</code>验证一下就可以了。</p>
 <p>嗯，时隔一年多，居然更新了，居然还是博客3周年。争取今年把2018年落下的补上，我这是有多懒😄️。</p>
