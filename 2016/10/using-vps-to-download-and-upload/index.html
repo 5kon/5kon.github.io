@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"junn.im","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"junn.im","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="最近需要下载国外网盘资源，无奈部分国外网盘被和谐，即使没被和谐的网盘下载速度和稳定性都不甚理想。曾经听说利用VPS可以下载国外网盘资源，正好自己手上也有闲置的VPS，我决定亲自实践一下利用VPS下载国外网盘资源，并且最后将此资源上传到百度云，在国内可以正常下载。">
 <meta property="og:type" content="article">
@@ -236,29 +236,24 @@
 <li>Mac系统: 终端(Terminal.app); Windows系统: PuTTY</li>
 </ol>
 <h2 id="第一步-配置VPS操作系统"><a href="#第一步-配置VPS操作系统" class="headerlink" title="第一步 配置VPS操作系统"></a>第一步 配置VPS操作系统</h2><p>我一开始用的是Vultr最基础的套餐，每月5刀的那种。选择<code>Vultr Cloud Compute(VC2)</code>，<code>Server Location</code>可以选<code>Tokyo</code>，理论上离的越近，延迟越少。<code>Server Type</code>选择<code>64 bit OS</code>，点击<code>CentOS 7 x64</code>，<code>Server Size</code>选择<code>$5/mo</code>(土豪请随意)，后面的<code>Additional Features</code>之类的按照默认，最后点击<code>Deploy Now</code>。操作系统最好选择CentOS 7，因为这个版本的系统默认的Python版本是2.7.5，而后面要用到的bypy依赖2.7+的Python才能运行。查看系统Python版本可用如下代码：</p>
-<pre><code class="bash">python -V
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python <span class="token parameter variable">-V</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>几分钟之后，VPS部署完毕，记下VPS的IP地址和密码。</p>
 <h2 id="第二步-在VPS中安装Plowshare"><a href="#第二步-在VPS中安装Plowshare" class="headerlink" title="第二步 在VPS中安装Plowshare"></a>第二步 在VPS中安装Plowshare</h2><p>1.SSH</p>
 <p>在安装Plowshare之前，得先通过SSH登录进VPS。Mac使用自带的终端就可以了，Windows可以使用PuTTY。以Mac为例，在终端中输入：</p>
-<pre><code class="bash">ssh root@你的VPS的IP地址
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> root@你的VPS的IP地址<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>然后会提示你输入密码，复制粘贴即可。粘贴完密码后，终端不会显示密码，只需摁下回车键即可登录进VPS。</p>
 <p>2.安装<a target="_blank" rel="noopener" href="https://github.com/mcrapet/plowshare">Plowshare</a></p>
 <p>按照<a target="_blank" rel="noopener" href="https://github.com/mcrapet/plowshare/blob/master/INSTALL">此页面</a>安装。CentOS系统在终端中使用如下代码：</p>
-<pre><code class="bash">yum install plowshare
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> plowshare<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>在Vultr的CentOS中，我使用上面的代码安装Plowshare成功，但在AlphaRacks的VPS中，我使用同样代码却出现问题，出现如下文字：</p>
-<pre><code class="bash">没有可用软件包 plowshare。
-错误：无须任何处理
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">没有可用软件包 plowshare。
+错误：无须任何处理<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>我在网上寻寻觅觅，在这个<a target="_blank" rel="noopener" href="https://pkgs.org/centos-7/epel-x86_64/plowshare-1.0.6-1.el7.noarch.rpm.html">网页</a>寻找到答案：</p>
 <blockquote>
 <p>Download plowshare-1.0.6-1.el7.noarch.rpm for CentOS 7 from the EPEL repository.</p>
 </blockquote>
 <p>看到上面这句话我想，可能是因为AlphaRacks的CentOS缺少了<code>EPEL repository</code>，导致plowshare无法下载。于是需要先在VPS中安装<code>EPEL repository</code>，在网上寻觅到如下代码安装EPEL：</p>
-<pre><code class="bash">yum -y install epel-release
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token parameter variable">-y</span> <span class="token function">install</span> epel-release<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>安装EPEL后，Plowshare安装成功。</p>
 <p>3.安装Plowshare的外部模块</p>
 <p>在Plowshare的Introduction中有这么一句话：</p>
@@ -266,13 +261,12 @@
 <p>Plowshare itself doesn’t support any websites (named module). It’s just the core engine. Concerning modules, few are available separately and must be installed in user directory</p>
 </blockquote>
 <p>Plowshare只是一个引擎(core engine)，真正起作用能下载这些国外网盘的是外部的模块(module)。所以安装完Plowshare后还要安装外部模块，按照<a target="_blank" rel="noopener" href="https://github.com/mcrapet/plowshare/blob/master/INSTALL">这个页面</a>最后的代码<code>Installation (external modules)</code>，我试了<code>Automatic method: using plowmod</code>，没用。于是使用了<code>Manual method: from sources</code>，成功安装。在终端中逐行输入以下代码，每输完一行敲一下回车键。</p>
-<pre><code class="bash">mkdir -p ~/.config/plowshare/modules.d
-cd ~/.config/plowshare/modules.d
-curl -L -k https://github.com/mcrapet/plowshare-modules-legacy/archive/master.tar.gz | tar zxf -
-mv plowshare-modules-legacy-master legacy
-# vim:fileencoding=utf-8
-cd
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> ~/.config/plowshare/modules.d
+<span class="token builtin class-name">cd</span> ~/.config/plowshare/modules.d
+<span class="token function">curl</span> <span class="token parameter variable">-L</span> <span class="token parameter variable">-k</span> https://github.com/mcrapet/plowshare-modules-legacy/archive/master.tar.gz <span class="token operator">|</span> <span class="token function">tar</span> zxf -
+<span class="token function">mv</span> plowshare-modules-legacy-master legacy
+<span class="token comment"># vim:fileencoding=utf-8</span>
+<span class="token builtin class-name">cd</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>到此，Plowshare安装全部完成。可以在终端输入<code>plowdown -h</code>显示帮助文档，输入<code>plowdown --modules</code>显示目前模块支持的网盘，发现居然还有115网盘(然后并有什么x用，如果支持yunfile就好了)。在帮助文档中还有一行代码比较重要：</p>
 <blockquote>
 <p>–9kweu&#x3D;KEY           9kw.eu captcha (API) key</p>
@@ -280,40 +274,37 @@ cd
 <p>9kw.eu，是一个用来识别captcha的服务。下载过国外网盘资源的人都知道，这些网盘都需要看图识字(captcha)输入验证码才能下载资源，而9kw.eu正是一个自动识别captcha的服务，对于资源下载至关重要。Plowshare好像还有其他captcha识别服务，我没试过。</p>
 <h2 id="第三步-注册9kw-eu服务"><a href="#第三步-注册9kw-eu服务" class="headerlink" title="第三步 注册9kw.eu服务"></a>第三步 注册9kw.eu服务</h2><p>注册过程不叙述了，不过<a href="9kw.eu">9kw.eu</a>这服务不是免费的，需要付费：4000次captcha服务(submit)，收费5欧。对于没有比特币的我来说只能使用坑爹的Paypal，5欧收了我38块多，Paypal这汇率…不过还算便宜，40元RMB支持识别4000次，1分钱识别1次，可以接受。注册付费完之后，在后台可以获取Plowshare的专属API，就是<code>--9kweu=KEY</code>中的KEY。</p>
 <p>接下去就是下载资源了，使用如下格式，注意空格：</p>
-<pre><code class="bash">plowdown --9kweu=你的Plowshare专属API 你的资源网址链接
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">plowdown <span class="token parameter variable">--9kweu</span><span class="token operator">=</span>你的Plowshare专属API 你的资源网址链接<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>静等下载吧。</p>
 <h2 id="第四步-安装bypy"><a href="#第四步-安装bypy" class="headerlink" title="第四步 安装bypy"></a>第四步 安装bypy</h2><p><a target="_blank" rel="noopener" href="https://github.com/houtianze/bypy">bypy</a>是一个百度云网盘的Python客户端，可在Linux环境下通过命令行来操作。在本文的操作环境下，安装byby需要更多的步骤，byby官网没有介绍那么详细，所以我参考了其他网友的教程。</p>
 <p>1.安装 Git (此步骤可省略)</p>
-<pre><code class="bash">yum install git
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>2.安装Python Pip</p>
 <p>如果在前面已安装过EPEL，则这边输入</p>
-<pre><code class="bash">yum -y install python-pip
-yum clean all
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token parameter variable">-y</span> <span class="token function">install</span> python-pip
+yum clean all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>如果没有安装过EPEL，则输入</p>
-<pre><code class="bash">yum -y install epel-release
-yum -y install python-pip
-yum clean all
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token parameter variable">-y</span> <span class="token function">install</span> epel-release
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> python-pip
+yum clean all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>3.安装Python Requests库</p>
-<pre><code class="bash">pip install requests
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> requests<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>4.安装bypy</p>
 <p>完成以上步骤后，才开始正式安装bypy。</p>
-<pre><code class="bash">pip install bypy
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> bypy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>第一次运行时需要百度网盘授权，只需跑任何一个命令（比如 <code>bypy.py info</code>）然后跟着说明（登陆等）来授权即可。授权只需一次，一旦成功，以后不会再出现授权提示。运行<code>bypy.py info</code>是这样的：</p>
-<pre><code class="bash">bypy.py info
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">bypy.py info
 Please visit: https://openapi.baidu.com/xxxxxx
 And authorize this app
-Paste the Authorization Code here within 10 minutes.
-Press [Enter] when you are done
-</code></pre>
+Paste the Authorization Code here within <span class="token number">10</span> minutes.
+Press <span class="token punctuation">[</span>Enter<span class="token punctuation">]</span> when you are <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在浏览器中打开 <code>https://openapi.baidu.com/xxxxxx</code> 这个网址，百度会反馈一段<code>Authorization Code</code>，复制粘贴到终端，摁回车键即可。到此bypy也装好了，等资源下载完，输入</p>
-<pre><code class="bash">bypy.py upload
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">bypy.py upload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>就能将资源搬回百度网盘了。</p>
 <p>接下去再谈谈我使用的VPS下载上传速度。</p>
 <p>我只使用了Vultr家的最基础的<code>$5/mo</code>套餐和AlphaRacks家的<code>Hot Summer Special - Linux 768MB</code>套餐，两家配置如下：</p>

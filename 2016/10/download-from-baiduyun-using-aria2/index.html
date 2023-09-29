@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"junn.im","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"junn.im","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="上一篇写到了使用VPS下载国外网盘资源并将资源上传至百度云，费时费力绕这么大一圈把资源搬回墙内最终目的还是为了下载。作为国内唯一还能「一用」的大公司网盘，用户体验自然差到极点，8秒小电影、无理由限制上传下载速度都是家常便饭。">
 <meta property="og:type" content="article">
@@ -242,70 +242,68 @@
 </ul>
 <h2 id="安装aria2"><a href="#安装aria2" class="headerlink" title="安装aria2"></a>安装aria2</h2><p>以Mac为例，安装方法有两种：</p>
 <p>1.从aria2的<a target="_blank" rel="noopener" href="https://github.com/aria2/aria2/releases">release</a>中下载安装<code>Latest release</code>中的对应系统的<code>Downloads</code><br>2.使用<code>Homebrew</code>安装，在「终端」中输入</p>
-<pre><code class="bash">brew install aria2
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> aria2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>就可以安装aria2，前提是Mac中已经安装有<code>Homebrew</code>，如提示没有可以前往<a target="_blank" rel="noopener" href="http://brew.sh/index_zh-cn.html">官网</a>照着说明安装。在安装过程中「终端」可能还会提示要安装Xcode中的一款工具<code>Command Line Tools</code>，照着指示，输入命令行</p>
-<pre><code class="bash">xcode-select --install
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">xcode-select <span class="token parameter variable">--install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h2 id="配置aria2"><a href="#配置aria2" class="headerlink" title="配置aria2"></a>配置aria2</h2><p>软件安装完成了，需要对软件进行一下配置。对于aria2这类软件需要自己编写一个配置文件。</p>
 <p>aria2 提供两种方式使用，一种是直接命令行模式下载，不推荐使用这种方法，推荐使用另外一种 RPC 模式，这种方式 aria 启动之后只会安静的等待下载请求，下载完成后也只会安静的驻留后台不会自动退出。而使用RPC模式推荐做一个配置文件<code>aria2.conf</code>方便使用。我们把配置文件<code>aria2.conf</code>放在路径 <code>~/.aria2 </code>下，在「终端」中依次逐行输入命令，并回车：</p>
-<pre><code class="bash">cd ~
-mkdir .aria2
-cd .aria2
-touch aria2.conf
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> ~
+<span class="token function">mkdir</span> .aria2
+<span class="token builtin class-name">cd</span> .aria2
+<span class="token function">touch</span> aria2.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>接着打开 Finder，利用 Shift+Cmd+G 进入路径：<code>~/.aria2/aria2.conf</code>，用<code>Sublime Text</code>、<code>Notepad+++</code>这一类编辑器打开 <code>aria2.conf</code>，如果只是下载百度云资源，可以使用<a target="_blank" rel="noopener" href="https://blog.icehoney.me/posts/2015-01-31-Aria2-download">雪月秋水君</a>提供的配置拷贝进去(其余配置可参考<a target="_blank" rel="noopener" href="http://aria2c.com/usage.html">此文</a>)：</p>
-<pre><code class="bash">#用户名
-#rpc-user=user
-#密码
-#rpc-passwd=passwd
-#上面的认证方式不建议使用,建议使用下面的token方式
-#设置加密的密钥
-#rpc-secret=token
-#允许rpc
-enable-rpc=true
-#允许所有来源, web界面跨域权限需要
-rpc-allow-origin-all=true
-#允许外部访问，false的话只监听本地端口
-rpc-listen-all=true
-#RPC端口, 仅当默认端口被占用时修改
-#rpc-listen-port=6800
-#最大同时下载数(任务数), 路由建议值: 3
-max-concurrent-downloads=5
-#断点续传
-continue=true
-#同服务器连接数
-max-connection-per-server=5
-#最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要
-min-split-size=10M
-#单文件最大线程数, 路由建议值: 5
-split=10
-#下载速度限制
-max-overall-download-limit=0
-#单文件速度限制
-max-download-limit=0
-#上传速度限制
-max-overall-upload-limit=0
-#单文件速度限制
-max-upload-limit=0
-#断开速度过慢的连接
-#lowest-speed-limit=0
-#验证用，需要1.16.1之后的release版本
-#referer=*
-#文件保存路径, 默认为当前启动位置
-dir=/Users/xxx/Downloads
-#文件缓存, 使用内置的文件缓存, 如果你不相信Linux内核文件缓存和磁盘内置缓存时使用, 需要1.16及以上版本
-#disk-cache=0
-#另一种Linux文件缓存方式, 使用前确保您使用的内核支持此选项, 需要1.15及以上版本(?)
-#enable-mmap=true
-#文件预分配, 能有效降低文件碎片, 提高磁盘性能. 缺点是预分配时间较长
-#所需时间 none &lt; falloc ? trunc « prealloc, falloc和trunc需要文件系统和内核支持
-file-allocation=prealloc
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#用户名</span>
+<span class="token comment">#rpc-user=user</span>
+<span class="token comment">#密码</span>
+<span class="token comment">#rpc-passwd=passwd</span>
+<span class="token comment">#上面的认证方式不建议使用,建议使用下面的token方式</span>
+<span class="token comment">#设置加密的密钥</span>
+<span class="token comment">#rpc-secret=token</span>
+<span class="token comment">#允许rpc</span>
+enable-rpc<span class="token operator">=</span>true
+<span class="token comment">#允许所有来源, web界面跨域权限需要</span>
+rpc-allow-origin-all<span class="token operator">=</span>true
+<span class="token comment">#允许外部访问，false的话只监听本地端口</span>
+rpc-listen-all<span class="token operator">=</span>true
+<span class="token comment">#RPC端口, 仅当默认端口被占用时修改</span>
+<span class="token comment">#rpc-listen-port=6800</span>
+<span class="token comment">#最大同时下载数(任务数), 路由建议值: 3</span>
+max-concurrent-downloads<span class="token operator">=</span><span class="token number">5</span>
+<span class="token comment">#断点续传</span>
+<span class="token assign-left variable">continue</span><span class="token operator">=</span>true
+<span class="token comment">#同服务器连接数</span>
+max-connection-per-server<span class="token operator">=</span><span class="token number">5</span>
+<span class="token comment">#最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要</span>
+min-split-size<span class="token operator">=</span>10M
+<span class="token comment">#单文件最大线程数, 路由建议值: 5</span>
+<span class="token assign-left variable">split</span><span class="token operator">=</span><span class="token number">10</span>
+<span class="token comment">#下载速度限制</span>
+max-overall-download-limit<span class="token operator">=</span><span class="token number">0</span>
+<span class="token comment">#单文件速度限制</span>
+max-download-limit<span class="token operator">=</span><span class="token number">0</span>
+<span class="token comment">#上传速度限制</span>
+max-overall-upload-limit<span class="token operator">=</span><span class="token number">0</span>
+<span class="token comment">#单文件速度限制</span>
+max-upload-limit<span class="token operator">=</span><span class="token number">0</span>
+<span class="token comment">#断开速度过慢的连接</span>
+<span class="token comment">#lowest-speed-limit=0</span>
+<span class="token comment">#验证用，需要1.16.1之后的release版本</span>
+<span class="token comment">#referer=*</span>
+<span class="token comment">#文件保存路径, 默认为当前启动位置</span>
+<span class="token assign-left variable">dir</span><span class="token operator">=</span>/Users/xxx/Downloads
+<span class="token comment">#文件缓存, 使用内置的文件缓存, 如果你不相信Linux内核文件缓存和磁盘内置缓存时使用, 需要1.16及以上版本</span>
+<span class="token comment">#disk-cache=0</span>
+<span class="token comment">#另一种Linux文件缓存方式, 使用前确保您使用的内核支持此选项, 需要1.15及以上版本(?)</span>
+<span class="token comment">#enable-mmap=true</span>
+<span class="token comment">#文件预分配, 能有效降低文件碎片, 提高磁盘性能. 缺点是预分配时间较长</span>
+<span class="token comment">#所需时间 none &lt; falloc ? trunc « prealloc, falloc和trunc需要文件系统和内核支持</span>
+file-allocation<span class="token operator">=</span>prealloc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>默认下载路径的<code>/Users/xxx/Downloads</code>可以改为任何你想要的绝对路径。此处 Downloads 为下载目录，xxx 请自行替换成你的 Mac 用户名，然后保存，退出编辑器。</p>
 <h2 id="启动aria2"><a href="#启动aria2" class="headerlink" title="启动aria2"></a>启动aria2</h2><p>安装配置完就可以使用aria2了，在终端中输入：</p>
-<pre><code class="bash">aria2c --conf-path=&quot;/Users/xxx/.aria2/aria2.conf&quot; -D
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">aria2c --conf-path<span class="token operator">=</span><span class="token string">"/Users/xxx/.aria2/aria2.conf"</span> <span class="token parameter variable">-D</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>xxx 请自行替换成你的 Mac 用户名，aria2就启动了。</p>
 <h2 id="使用aria2"><a href="#使用aria2" class="headerlink" title="使用aria2"></a>使用aria2</h2><p>aria2是一个命令行下载器(command-line download utility)，官网也给出了命令行下载说明，它没有用户操作界面(GUI)。不过还是有大神制作了两款在线GUI：<a target="_blank" rel="noopener" href="http://binux.github.io/yaaw/demo/">YAAW</a>和<a target="_blank" rel="noopener" href="http://ziahamza.github.io/webui-aria2/">Aria2 WebUI</a>。Mac还有相应的桌面客户端<a target="_blank" rel="noopener" href="https://github.com/yangshun1029/aria2gui">Aria2GUI</a>。</p>
 <p>操作界面有了，还需要一个插件打通百度云和aria2，这个就是<a target="_blank" rel="noopener" href="https://github.com/acgotaku/BaiduExporter">BaiduExporter</a>。可惜因某些原因，这个插件已经在Chrome的官方商店下架了。每次使用需要重新安装，比较麻烦，貌似在这有<a target="_blank" rel="noopener" href="https://hencolle.com/2016/10/16/baidu_exporter/">解决办法</a>，我没试过。</p>

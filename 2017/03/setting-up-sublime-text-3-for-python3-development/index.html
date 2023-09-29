@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"junn.im","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"junn.im","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="今天学Python时遇到如下代码：">
 <meta property="og:type" content="article">
@@ -226,22 +226,21 @@
     <div class="post-body" itemprop="articleBody"><p>今天学Python时遇到如下代码：</p>
 <span id="more"></span>
 
-<pre><code class="bash">#!/usr/bin/python3 
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/usr/bin/python3 </span>
 
-# 该实例演示了数字猜谜游戏
-number = 7
-guess = -1
-print(&quot;数字猜谜游戏!&quot;)
-while guess != number:
-    guess = int(input(&quot;请输入你猜的数字：&quot;))
+<span class="token comment"># 该实例演示了数字猜谜游戏</span>
+number <span class="token operator">=</span> <span class="token number">7</span>
+guess <span class="token operator">=</span> <span class="token parameter variable">-1</span>
+print<span class="token punctuation">(</span><span class="token string">"数字猜谜游戏!"</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span> guess <span class="token operator">!=</span> number:
+    guess <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">"请输入你猜的数字："</span><span class="token punctuation">))</span>
 
-    if guess == number:
-        print(&quot;恭喜，你猜对了！&quot;)
-    elif guess &lt; number:
-        print(&quot;猜的数字小了...&quot;)
-    elif guess &gt; number:
-        print(&quot;猜的数字大了...&quot;)
-</code></pre>
+    <span class="token keyword">if</span> guess <span class="token operator">==</span> number:
+        print<span class="token punctuation">(</span><span class="token string">"恭喜，你猜对了！"</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> guess <span class="token operator">&lt;</span> number:
+        print<span class="token punctuation">(</span><span class="token string">"猜的数字小了..."</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> guess <span class="token operator">></span> number:
+        print<span class="token punctuation">(</span><span class="token string">"猜的数字大了..."</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>⌘+b执行该段代码后我发现输入数字后，控制台无法进行下一步，无法建立互动，于是Google如何在ST3中建立Python交互环境。</p>
 <p>在用ST3学习Python前，我就安装了以下三个据说是学Python必装的Package：</p>
 <ul>
@@ -251,54 +250,54 @@ while guess != number:
 </ul>
 <p>其中SublimeREPL就可以搭建起Python交互环境。</p>
 <h2 id="修改SublimeREPL"><a href="#修改SublimeREPL" class="headerlink" title="修改SublimeREPL"></a>修改SublimeREPL</h2><p>选择<code>Tools</code>-<code>SublimeREPL</code>-<code>Python</code>-<code>Python-RUN current file</code>，就可以建立起上述代码的交互环境。当我点击了<code>Python-RUN current file</code>ST3又报错，一看还是编码问题，看来还得像上一篇文章一样调整一下SublimeREPL的Python编码。在<code>/Users/你的用户名/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/config/Python</code>或者<code>Preferences-Browse Packages...-SublimeREPL-config-Python</code>路径中找到<code>Main.sublime-menu</code>这个文件打开，定位到<code>caption&quot;: &quot;Python - RUN current file&quot;</code>那块，原始代码为：</p>
-<pre><code class="bash">&#123;&quot;command&quot;: &quot;repl_open&quot;,
-&quot;caption&quot;: &quot;Python - RUN current file&quot;,
-&quot;id&quot;: &quot;repl_python_run&quot;,
-&quot;mnemonic&quot;: &quot;R&quot;,
-&quot;args&quot;: &#123;
-    &quot;type&quot;: &quot;subprocess&quot;,
-    &quot;encoding&quot;: &quot;utf8&quot;,
-    &quot;cmd&quot;: [&quot;python&quot;, &quot;-u&quot;, &quot;$file_basename&quot;],
-    &quot;cwd&quot;: &quot;$file_path&quot;,
-    &quot;syntax&quot;: &quot;Packages/Python/Python.tmLanguage&quot;,
-    &quot;external_id&quot;: &quot;python&quot;,
-    &quot;extend_env&quot;: &#123;&quot;PYTHONIOENCODING&quot;: &quot;utf-8&quot;&#125;
-    &#125;
-&#125;,
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">&#123;</span><span class="token string">"command"</span><span class="token builtin class-name">:</span> <span class="token string">"repl_open"</span>,
+<span class="token string">"caption"</span><span class="token builtin class-name">:</span> <span class="token string">"Python - RUN current file"</span>,
+<span class="token string">"id"</span><span class="token builtin class-name">:</span> <span class="token string">"repl_python_run"</span>,
+<span class="token string">"mnemonic"</span><span class="token builtin class-name">:</span> <span class="token string">"R"</span>,
+<span class="token string">"args"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+	<span class="token string">"type"</span><span class="token builtin class-name">:</span> <span class="token string">"subprocess"</span>,
+	<span class="token string">"encoding"</span><span class="token builtin class-name">:</span> <span class="token string">"utf8"</span>,
+	<span class="token string">"cmd"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token string">"python"</span>, <span class="token string">"-u"</span>, <span class="token string">"<span class="token variable">$file_basename</span>"</span><span class="token punctuation">]</span>,
+	<span class="token string">"cwd"</span><span class="token builtin class-name">:</span> <span class="token string">"<span class="token variable">$file_path</span>"</span>,
+	<span class="token string">"syntax"</span><span class="token builtin class-name">:</span> <span class="token string">"Packages/Python/Python.tmLanguage"</span>,
+	<span class="token string">"external_id"</span><span class="token builtin class-name">:</span> <span class="token string">"python"</span>,
+	<span class="token string">"extend_env"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token string">"PYTHONIOENCODING"</span><span class="token builtin class-name">:</span> <span class="token string">"utf-8"</span><span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>,
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>我改成下面这样：</p>
-<pre><code class="bash">&#123;&quot;command&quot;: &quot;repl_open&quot;,
-&quot;caption&quot;: &quot;Python - RUN current file&quot;,
-&quot;id&quot;: &quot;repl_python_run&quot;,
-&quot;mnemonic&quot;: &quot;R&quot;,
-&quot;args&quot;: &#123;
-    &quot;type&quot;: &quot;subprocess&quot;,
-    &quot;encoding&quot;: &quot;utf8&quot;,
-    &quot;cmd&quot;: [&quot;python3&quot;, &quot;-u&quot;, &quot;-i&quot;, &quot;$file_basename&quot;],
-    &quot;cwd&quot;: &quot;$file_path&quot;,
-    &quot;syntax&quot;: &quot;Packages/Python/Python.tmLanguage&quot;,
-    &quot;external_id&quot;: &quot;python&quot;,
-    &quot;extend_env&quot;: &#123;&quot;PYTHONIOENCODING&quot;: &quot;utf-8&quot;&#125;
-    &#125;
-&#125;,
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">&#123;</span><span class="token string">"command"</span><span class="token builtin class-name">:</span> <span class="token string">"repl_open"</span>,
+<span class="token string">"caption"</span><span class="token builtin class-name">:</span> <span class="token string">"Python - RUN current file"</span>,
+<span class="token string">"id"</span><span class="token builtin class-name">:</span> <span class="token string">"repl_python_run"</span>,
+<span class="token string">"mnemonic"</span><span class="token builtin class-name">:</span> <span class="token string">"R"</span>,
+<span class="token string">"args"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+	<span class="token string">"type"</span><span class="token builtin class-name">:</span> <span class="token string">"subprocess"</span>,
+	<span class="token string">"encoding"</span><span class="token builtin class-name">:</span> <span class="token string">"utf8"</span>,
+	<span class="token string">"cmd"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token string">"python3"</span>, <span class="token string">"-u"</span>, <span class="token string">"-i"</span>, <span class="token string">"<span class="token variable">$file_basename</span>"</span><span class="token punctuation">]</span>,
+	<span class="token string">"cwd"</span><span class="token builtin class-name">:</span> <span class="token string">"<span class="token variable">$file_path</span>"</span>,
+	<span class="token string">"syntax"</span><span class="token builtin class-name">:</span> <span class="token string">"Packages/Python/Python.tmLanguage"</span>,
+	<span class="token string">"external_id"</span><span class="token builtin class-name">:</span> <span class="token string">"python"</span>,
+	<span class="token string">"extend_env"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token string">"PYTHONIOENCODING"</span><span class="token builtin class-name">:</span> <span class="token string">"utf-8"</span><span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>,<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>这样就解决了<code>RUN current file</code>时的编码问题。但这样还有一个问题，每次需要交互，必须要点击菜单栏Tools然后一层层点进去才能跑代码，还需要设置一个快捷键。</p>
 <h2 id="设置快捷键"><a href="#设置快捷键" class="headerlink" title="设置快捷键"></a>设置快捷键</h2><p>在<code>Preferences-Key Bindings</code>进行快捷键设置。在显示的文件名为<code>Default (OSX).sublime-keymap - User</code>文档的两个方括号间粘贴如下代码：</p>
-<pre><code class="bash">&#123; &quot;keys&quot;: [&quot;ctrl+r&quot;], 
-    &quot;command&quot;: &quot;repl_open&quot;,                  
-    &quot;caption&quot;: &quot;Python - RUN current file&quot;,                 
-    &quot;mnemonic&quot;: &quot;R&quot;,                 
-    &quot;args&quot;: &#123;
-        &quot;type&quot;: &quot;subprocess&quot;,
-        &quot;encoding&quot;: &quot;utf8&quot;,
-        &quot;cmd&quot;: [&quot;python3&quot;, &quot;-u&quot;, &quot;-i&quot;, &quot;$file_basename&quot;],
-        &quot;cwd&quot;: &quot;$file_path&quot;,
-        &quot;syntax&quot;: &quot;Packages/Python/Python.tmLanguage&quot;,
-        &quot;external_id&quot;: &quot;python&quot;,
-        &quot;extend_env&quot;: &#123;&quot;PYTHONIOENCODING&quot;: &quot;utf-8&quot;&#125;
-        &#125; 
-&#125;
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">&#123;</span> <span class="token string">"keys"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token string">"ctrl+r"</span><span class="token punctuation">]</span>, 
+	<span class="token string">"command"</span><span class="token builtin class-name">:</span> <span class="token string">"repl_open"</span>,                  
+	<span class="token string">"caption"</span><span class="token builtin class-name">:</span> <span class="token string">"Python - RUN current file"</span>,                 
+	<span class="token string">"mnemonic"</span><span class="token builtin class-name">:</span> <span class="token string">"R"</span>,                 
+	<span class="token string">"args"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+		<span class="token string">"type"</span><span class="token builtin class-name">:</span> <span class="token string">"subprocess"</span>,
+		<span class="token string">"encoding"</span><span class="token builtin class-name">:</span> <span class="token string">"utf8"</span>,
+		<span class="token string">"cmd"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token string">"python3"</span>, <span class="token string">"-u"</span>, <span class="token string">"-i"</span>, <span class="token string">"<span class="token variable">$file_basename</span>"</span><span class="token punctuation">]</span>,
+		<span class="token string">"cwd"</span><span class="token builtin class-name">:</span> <span class="token string">"<span class="token variable">$file_path</span>"</span>,
+		<span class="token string">"syntax"</span><span class="token builtin class-name">:</span> <span class="token string">"Packages/Python/Python.tmLanguage"</span>,
+		<span class="token string">"external_id"</span><span class="token builtin class-name">:</span> <span class="token string">"python"</span>,
+		<span class="token string">"extend_env"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token string">"PYTHONIOENCODING"</span><span class="token builtin class-name">:</span> <span class="token string">"utf-8"</span><span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span> 
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>我设置了<code>ctrl+r</code>为<code>RUN current file</code>的快捷键。</p>
 <p>到这里，Python在ST3的交互问题就全部搞定了，并且有了一个快捷键可以快速方便的执行交互类型的代码了。</p>
 <p>参考：<a target="_blank" rel="noopener" href="http://www.jasred.com/2014/05/12/setting-up-sublime-text-3-for-python3-development/">Setting Up Sublime Text 3 for Python3 Development</a></p>

@@ -14,12 +14,12 @@ http://junn.im/
 http://junn.im/tags/aria2/
 http://junn.im/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/
 http://junn.im/tags/Mac/
+http://junn.im/tags/Python/
+http://junn.im/tags/Sublime-Text-3/
 http://junn.im/tags/blog/
 http://junn.im/tags/hexo/
 http://junn.im/tags/%E5%8D%9A%E5%AE%A2/
 http://junn.im/tags/ingress/
-http://junn.im/tags/Python/
-http://junn.im/tags/Sublime-Text-3/
 http://junn.im/tags/tesla/
 http://junn.im/tags/teslamate/
 http://junn.im/tags/raspberrypi/

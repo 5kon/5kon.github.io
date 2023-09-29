@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"junn.im","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"junn.im","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="想学Python，发现需要一个IDE来跑自己写的代码。Mac上有很多选择，自己最喜欢CodeRunner，轻量简单功能强大。就在准备掏钱的时候，发现Sublime Text 3也能打造成Python的IDE，只需安装几个Package就可以了，于是按照网上教程搞定。我输入了第一行Python代码：">
 <meta property="og:type" content="article">
@@ -227,26 +227,26 @@
     <div class="post-body" itemprop="articleBody"><p>想学Python，发现需要一个IDE来跑自己写的代码。Mac上有很多选择，自己最喜欢CodeRunner，轻量简单功能强大。就在准备掏钱的时候，发现Sublime Text 3也能打造成Python的IDE，只需安装几个Package就可以了，于是按照网上教程搞定。我输入了第一行Python代码：</p>
 <span id="more"></span>
 
-<pre><code class="bash">print(&#39;你好&#39;)
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">print<span class="token punctuation">(</span><span class="token string">'你好'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>然后⌘+B运行，编译器报错。看了一下和中文字符有关系，这里涉及到Python编码问题。</p>
 <p>在网上找了很多方法，解决方法都是一致的：在Sublime Text 3 中依次点击菜单Tools-&gt;build system-&gt;New build system，粘贴下方的代码并保存为Python.sublime-build，重启Sublime即可。</p>
-<pre><code class="bash">&#123;  
-    &quot;cmd&quot;: [&quot;python&quot;,&quot;-u&quot;,&quot;$file&quot;],  
-    &quot;file_regex&quot;: &quot;^[ ]*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;,  
-    &quot;selector&quot;: &quot;source.python&quot;,  
-    &quot;encoding&quot;: &quot;cp936&quot;  
-&#125; 
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">&#123;</span>  
+    <span class="token string">"cmd"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token string">"python"</span>,<span class="token string">"-u"</span>,<span class="token string">"<span class="token variable">$file</span>"</span><span class="token punctuation">]</span>,  
+    <span class="token string">"file_regex"</span><span class="token builtin class-name">:</span> <span class="token string">"^[ ]*File <span class="token entity" title="\&quot;">\"</span>(...*?)<span class="token entity" title="\&quot;">\"</span>, line ([0-9]*)"</span>,  
+    <span class="token string">"selector"</span><span class="token builtin class-name">:</span> <span class="token string">"source.python"</span>,  
+    <span class="token string">"encoding"</span><span class="token builtin class-name">:</span> <span class="token string">"cp936"</span>  
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>但以上代码对我的Sublime Text 3无效</strong>。于是继续寻找解决方法，通过<a target="_blank" rel="noopener" href="https://www.v2ex.com/t/163786">《TL;DR - 有关 Python 2 和 Sublime Text 中文 Unicode 编码问题的分析与理解》</a><a target="_blank" rel="noopener" href="https://www.v2ex.com/t/269405">《Sublime 3 用 Ctrl+B 运行打印中文就报错是什么原因?》</a><a target="_blank" rel="noopener" href="https://wslark.wordpress.com/2016/07/27/">《在Sublime Text中使用不同的python版本》</a>，我终于有点头绪。在默认情况下，Sublime Text 3里的Python 3的<code>sys.stdout.encoding</code>输出为UTF-8，但我的<code>sys.stdout.encoding</code>输出却为US-ASCII，可以通过修改<code>PYTHONIOENCODING</code>来改变<code>sys.stdout.encoding</code>的编码。</p>
 <p>在夜深人静的晚上，我通过近两个小时的寻找解决方法，不断摸索，对上述代码进行了修改，Sublime Text 3中的Python 3终于能输出中文了!</p>
-<pre><code class="bash">&#123;  
-    &quot;shell_cmd&quot;: &quot;python3 -u \&quot;$file\&quot;&quot;,  
-    &quot;file_regex&quot;: &quot;^[ ]*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;,  
-    &quot;selector&quot;: &quot;source.python&quot;,  
-    &quot;env&quot;: &#123;&quot;PYTHONIOENCODING&quot;: &quot;utf-8&quot;&#125;,
-&#125; 
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">&#123;</span>  
+    <span class="token string">"shell_cmd"</span><span class="token builtin class-name">:</span> <span class="token string">"python3 -u <span class="token entity" title="\&quot;">\"</span><span class="token variable">$file</span><span class="token entity" title="\&quot;">\"</span>"</span>,  
+    <span class="token string">"file_regex"</span><span class="token builtin class-name">:</span> <span class="token string">"^[ ]*File <span class="token entity" title="\&quot;">\"</span>(...*?)<span class="token entity" title="\&quot;">\"</span>, line ([0-9]*)"</span>,  
+    <span class="token string">"selector"</span><span class="token builtin class-name">:</span> <span class="token string">"source.python"</span>,  
+    <span class="token string">"env"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token string">"PYTHONIOENCODING"</span><span class="token builtin class-name">:</span> <span class="token string">"utf-8"</span><span class="token punctuation">&#125;</span>,
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>终于可以愉快的学习了。附修改前后Python的编码改变情况：</p>
 <p>修改前：<br><img src="http://7xpqon.com1.z0.glb.clouddn.com/pythonmodify_before.png"><br>修改后：<br><img src="http://7xpqon.com1.z0.glb.clouddn.com/pythonmodify_after.png"></p>
 

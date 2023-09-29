@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"junn.im","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"junn.im","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Tesla官方app内容比较简单，没有行程数据、电量消耗等数据，车主其实都很在意这些数据，我平时就用TezLab应用了解这些数据，感觉还不错。这两天了解到还有个TeslaMate应用可以呈现这些数据，刚好手上有台刷了RetroPie当怀旧游戏机但一直吃灰很多年的Raspberry Pi 3 Model B，于是打算折腾下，在树莓派上部署TeslaMate。">
 <meta property="og:type" content="article">
@@ -236,8 +236,8 @@
 <p><img src="https://s2.loli.net/2023/09/24/Fjp256iCOfd3qXE.jpg"></p>
 <p>在高级设置中开启SSH服务，username和密码自己设，设置完后点烧录。</p>
 <h2 id="第三步：给树莓派安装Docker"><a href="#第三步：给树莓派安装Docker" class="headerlink" title="第三步：给树莓派安装Docker"></a>第三步：给树莓派安装Docker</h2><p>把烧录完后的SD卡插到树莓派上，通电通网，树莓派和电脑要在同一局域网内。可以在路由器后台找到树莓派的IP地址，也可以通过软件找，Windows用<a target="_blank" rel="noopener" href="https://www.advanced-ip-scanner.com/">Advanced IP Scanner</a>，Mac用<a target="_blank" rel="noopener" href="https://apps.apple.com/us/app/lanscan/id472226235?mt=12">LanScan</a>。然后通过SSH链接树莓派，Windows用putty，Mac用terminal，以Mac为例，终端中输入：</p>
-<pre><code>ssh 你的树莓派用户名@树莓派的IP地址` 
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">ssh 你的树莓派用户名@树莓派的IP地址&#96; <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>树莓派用户名就是上面的Username。</p>
 <p>这里如果遇到这类提示：</p>
 <blockquote>
@@ -250,50 +250,50 @@
 <p>This installation instruction refers to the 32-bit (armhf) version of Raspberry Pi OS. If you’re using the 64-bit (arm64) version, follow the instructions for Debian.</p>
 </blockquote>
 <p>由于上面的树莓派系统安装的是64位，所以要按照<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/debian/">Debian</a>的流程操作。</p>
-<h3 id="Set-up-Docker’s-Apt-repository"><a href="#Set-up-Docker’s-Apt-repository" class="headerlink" title="Set up Docker’s Apt repository"></a><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/debian/#install-using-the-repository">Set up Docker’s Apt repository</a></h3><pre><code>sudo apt-get update
+<h3 id="Set-up-Docker’s-Apt-repository"><a href="#Set-up-Docker’s-Apt-repository" class="headerlink" title="Set up Docker’s Apt repository"></a><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/debian/#install-using-the-repository">Set up Docker’s Apt repository</a></h3><pre class="line-numbers language-none"><code class="language-none">sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg
-sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-</code></pre>
-<pre><code>echo \
-  &quot;deb [arch=&quot;$(dpkg --print-architecture)&quot; signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
-  &quot;$(. /etc/os-release &amp;&amp; echo &quot;$VERSION_CODENAME&quot;)&quot; stable&quot; | \
-  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo install -m 0755 -d &#x2F;etc&#x2F;apt&#x2F;keyrings
+curl -fsSL https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;debian&#x2F;gpg | sudo gpg --dearmor -o &#x2F;etc&#x2F;apt&#x2F;keyrings&#x2F;docker.gpg
+sudo chmod a+r &#x2F;etc&#x2F;apt&#x2F;keyrings&#x2F;docker.gpg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">echo \
+  &quot;deb [arch&#x3D;&quot;$(dpkg --print-architecture)&quot; signed-by&#x3D;&#x2F;etc&#x2F;apt&#x2F;keyrings&#x2F;docker.gpg] https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;debian \
+  &quot;$(. &#x2F;etc&#x2F;os-release &amp;&amp; echo &quot;$VERSION_CODENAME&quot;)&quot; stable&quot; | \
+  sudo tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;docker.list &gt; &#x2F;dev&#x2F;null
   
-sudo apt-get update
-</code></pre>
-<h3 id="Install-the-Docker-packages"><a href="#Install-the-Docker-packages" class="headerlink" title="Install the Docker packages"></a>Install the Docker packages</h3><pre><code>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
-</code></pre>
-<h3 id="安装确认"><a href="#安装确认" class="headerlink" title="安装确认"></a>安装确认</h3><pre><code>sudo docker run hello-world
-</code></pre>
+sudo apt-get update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Install-the-Docker-packages"><a href="#Install-the-Docker-packages" class="headerlink" title="Install the Docker packages"></a>Install the Docker packages</h3><pre class="line-numbers language-none"><code class="language-none">sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="安装确认"><a href="#安装确认" class="headerlink" title="安装确认"></a>安装确认</h3><pre class="line-numbers language-none"><code class="language-none">sudo docker run hello-world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>安装成功的话，会有这么一段话：</p>
 <blockquote>
 <p>Hello from Docker!<br>This message shows that your installation appears to be working correctly.</p>
 </blockquote>
 <h2 id="第四步：安装Docker-Compose"><a href="#第四步：安装Docker-Compose" class="headerlink" title="第四步：安装Docker Compose"></a>第四步：安装Docker Compose</h2><p>其实实测第三步做完之后已经有compose了，不过还是按照官方再来一次。</p>
-<pre><code>sudo apt-get update
-sudo apt-get install docker-compose-plugin
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get update
+sudo apt-get install docker-compose-plugin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>验证安装 <code>sudo docker compose version</code>，会显示 <code>Docker Compose version v2.21.0</code>，这样就显示compose也安装完成了。</p>
 <h2 id="第五步：编写docker-compose-yml文件"><a href="#第五步：编写docker-compose-yml文件" class="headerlink" title="第五步：编写docker-compose.yml文件"></a>第五步：编写docker-compose.yml文件</h2><p>安装TeslaMate要求，编写<a target="_blank" rel="noopener" href="https://docs.teslamate.org/docs/installation/docker#instructions"><code>docker-compose.yml</code></a>文件。在terminal中输入<code>nano docker-compose.yml</code>就能新建一个yml文件了，然后填入以下内容。</p>
-<pre><code>version: &quot;3&quot;
+<pre class="line-numbers language-none"><code class="language-none">version: &quot;3&quot;
 
 services:
   teslamate:
-    image: teslamate/teslamate:latest
+    image: teslamate&#x2F;teslamate:latest
     restart: always
     environment:
-      - ENCRYPTION_KEY=#insert a secure key to encrypt your Tesla API tokens
-      - DATABASE_USER=teslamate
-      - DATABASE_PASS=#insert your secure database password!
-      - DATABASE_NAME=teslamate
-      - DATABASE_HOST=database
-      - MQTT_HOST=mosquitto
+      - ENCRYPTION_KEY&#x3D;#insert a secure key to encrypt your Tesla API tokens
+      - DATABASE_USER&#x3D;teslamate
+      - DATABASE_PASS&#x3D;#insert your secure database password!
+      - DATABASE_NAME&#x3D;teslamate
+      - DATABASE_HOST&#x3D;database
+      - MQTT_HOST&#x3D;mosquitto
     ports:
       - 4000:4000
     volumes:
-      - ./import:/opt/app/import
+      - .&#x2F;import:&#x2F;opt&#x2F;app&#x2F;import
     cap_drop:
       - all
 
@@ -301,41 +301,40 @@ services:
     image: postgres:15
     restart: always
     environment:
-      - POSTGRES_USER=teslamate
-      - POSTGRES_PASSWORD=#insert your secure database password!
-      - POSTGRES_DB=teslamate
+      - POSTGRES_USER&#x3D;teslamate
+      - POSTGRES_PASSWORD&#x3D;#insert your secure database password!
+      - POSTGRES_DB&#x3D;teslamate
     volumes:
-      - teslamate-db:/var/lib/postgresql/data
+      - teslamate-db:&#x2F;var&#x2F;lib&#x2F;postgresql&#x2F;data
 
   grafana:
-    image: teslamate/grafana:latest
+    image: teslamate&#x2F;grafana:latest
     restart: always
     environment:
-      - DATABASE_USER=teslamate
-      - DATABASE_PASS=#insert your secure database password!
-      - DATABASE_NAME=teslamate
-      - DATABASE_HOST=database
+      - DATABASE_USER&#x3D;teslamate
+      - DATABASE_PASS&#x3D;#insert your secure database password!
+      - DATABASE_NAME&#x3D;teslamate
+      - DATABASE_HOST&#x3D;database
     ports:
       - 3000:3000
     volumes:
-      - teslamate-grafana-data:/var/lib/grafana
+      - teslamate-grafana-data:&#x2F;var&#x2F;lib&#x2F;grafana
 
   mosquitto:
     image: eclipse-mosquitto:2
     restart: always
-    command: mosquitto -c /mosquitto-no-auth.conf
+    command: mosquitto -c &#x2F;mosquitto-no-auth.conf
     # ports:
     #   - 1883:1883
     volumes:
-      - mosquitto-conf:/mosquitto/config
-      - mosquitto-data:/mosquitto/data
+      - mosquitto-conf:&#x2F;mosquitto&#x2F;config
+      - mosquitto-data:&#x2F;mosquitto&#x2F;data
 
 volumes:
   teslamate-db:
   teslamate-grafana-data:
   mosquitto-conf:
-  mosquitto-data:
-</code></pre>
+  mosquitto-data:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>有四个<code>#insert</code>的字段，设置成你要的密码，另外注意这里等号后面有个空格，把空格删除。填入完成后键盘按 ctrl+字母O，然后按ctrl+x退出编辑界面。</p>
 <p>最后<code>docker compose up -d</code>启动docker</p>
 <h2 id="第六步：登录TeslaMate"><a href="#第六步：登录TeslaMate" class="headerlink" title="第六步：登录TeslaMate"></a>第六步：登录TeslaMate</h2><p>1、打开网页：http:&#x2F;&#x2F;树莓派的IP地址:4000<br>2、用你的tesla账号登录，然后还要用到tesla token，可以用<a target="_blank" rel="noopener" href="https://docs.teslamate.org/docs/faq/#how-to-generate-your-own-tokens">这几个app</a>获得。<br>3、Grafana面板网址：http:&#x2F;&#x2F;树莓派的IP地址:3000，默认用户名和密码都是admin。</p>
