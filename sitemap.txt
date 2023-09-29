@@ -1,3 +1,5 @@
+http://junn.im/about/
+http://junn.im/2023/09/install-teslamate-in-raspberrypi/
 http://junn.im/2016/04/ingress/
 http://junn.im/2016/10/using-vps-to-download-and-upload/
 http://junn.im/2016/10/download-from-baiduyun-using-aria2/
@@ -6,8 +8,6 @@ http://junn.im/2016/04/helloworld/
 http://junn.im/2016/12/plowshare/
 http://junn.im/2017/03/fix-the-encoding-problem-of-chinese-characters-biulding-with-python-in-sublimetext3/
 http://junn.im/2019/04/update-python-for-mac/
-http://junn.im/2023/09/install-teslamate-in-raspberrypi/
-http://junn.im/about/
 http://junn.im/tags/
 http://junn.im/categories/
 http://junn.im/
