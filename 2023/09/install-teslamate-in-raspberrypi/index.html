@@ -21,7 +21,7 @@
 
     <meta name="description" content="Tesla官方app内容比较简单，没有行程数据、电量消耗等数据，车主其实都很在意这些数据，我平时就用TezLab应用了解这些数据，感觉还不错。这两天了解到还有个TeslaMate应用可以呈现这些数据，刚好手上有台刷了RetroPie当怀旧游戏机但一直吃灰很多年的Raspberry Pi 3 Model B，于是打算折腾下，在树莓派上部署TeslaMate。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在树莓派上部署teslamate">
+<meta property="og:title" content="在树莓派上部署Teslamate">
 <meta property="og:url" content="http://junn.im/2023/09/install-teslamate-in-raspberrypi/">
 <meta property="og:site_name" content="Jun&#39;s Blog">
 <meta property="og:description" content="Tesla官方app内容比较简单，没有行程数据、电量消耗等数据，车主其实都很在意这些数据，我平时就用TezLab应用了解这些数据，感觉还不错。这两天了解到还有个TeslaMate应用可以呈现这些数据，刚好手上有台刷了RetroPie当怀旧游戏机但一直吃灰很多年的Raspberry Pi 3 Model B，于是打算折腾下，在树莓派上部署TeslaMate。">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://s2.loli.net/2023/09/24/A2dwE8H1MZIiY3m.png">
 <meta property="og:image" content="https://s2.loli.net/2023/09/24/Fjp256iCOfd3qXE.jpg">
 <meta property="article:published_time" content="2023-09-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-29T16:00:31.917Z">
+<meta property="article:modified_time" content="2023-09-30T17:55:39.777Z">
 <meta property="article:author" content="Jun">
 <meta property="article:tag" content="tesla">
 <meta property="article:tag" content="teslamate">
@@ -42,10 +42,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://junn.im/2023/09/install-teslamate-in-raspberrypi/","path":"2023/09/install-teslamate-in-raspberrypi/","title":"在树莓派上部署teslamate"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://junn.im/2023/09/install-teslamate-in-raspberrypi/","path":"2023/09/install-teslamate-in-raspberrypi/","title":"在树莓派上部署Teslamate"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>在树莓派上部署teslamate | Jun's Blog</title>
+<title>在树莓派上部署Teslamate | Jun's Blog</title>
   
 
 
@@ -54,7 +54,7 @@
 
 
 
-
+<link rel="preconnect" href="http://152.70.130.122:8080/">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -182,12 +182,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="在树莓派上部署teslamate | Jun's Blog">
+      <meta itemprop="name" content="在树莓派上部署Teslamate | Jun's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          在树莓派上部署teslamate
+          在树莓派上部署Teslamate
         </h1>
 
         <div class="post-meta-container">
@@ -205,7 +205,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-30 00:00:31" itemprop="dateModified" datetime="2023-09-30T00:00:31+08:00">2023-09-30</time>
+      <time title="Modified: 2023-10-01 01:55:39" itemprop="dateModified" datetime="2023-10-01T01:55:39+08:00">2023-10-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -218,6 +218,10 @@
     </span>
 
   
+        
+      
+        
+      
 </div>
 
         </div>
@@ -374,11 +378,7 @@ volumes:
 
 
 
-    
-  <div class="comments" id="disqus_thread">
-    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-  </div>
-  
+    <div class="comments" id="comments"></div>
 </div>
   </main>
 
@@ -433,8 +433,38 @@ volumes:
 
 
 
-<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"junn","count":false,"i18n":{"disqus":"disqus"}}</script>
-<script src="/js/third-party/comments/disqus.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"http://152.70.130.122:8080/","site":null,"jsUrl":"http://152.70.130.122:8080/dist/Artalk.js","cssUrl":"http://152.70.130.122:8080/dist/Artalk.css","pvCount":false,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/2023/09/install-teslamate-in-raspberrypi/","pageTitle":"在树莓派上部署Teslamate"}</script>
 
+<link rel="stylesheet" href="http://152.70.130.122:8080/dist/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
 </body>
 </html>

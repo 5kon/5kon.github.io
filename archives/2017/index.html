@@ -46,7 +46,7 @@
 
 
 
-
+<link rel="preconnect" href="http://152.70.130.122:8080/">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -267,8 +267,38 @@
 
 
 
-<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"junn","count":false,"i18n":{"disqus":"disqus"}}</script>
-<script src="/js/third-party/comments/disqus.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"http://152.70.130.122:8080/","site":null,"jsUrl":"http://152.70.130.122:8080/dist/Artalk.js","cssUrl":"http://152.70.130.122:8080/dist/Artalk.css","pvCount":false,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/archives/2017/"}</script>
 
+<link rel="stylesheet" href="http://152.70.130.122:8080/dist/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
 </body>
 </html>
