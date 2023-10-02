@@ -197,7 +197,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Roboto Slab, Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Roboto Slab, Georgia, Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -2630,7 +2630,7 @@ header.header {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ffff4f;
+  background: #ffd0e7;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
